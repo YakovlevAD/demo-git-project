@@ -85,7 +85,7 @@ extension ListViewController {
             guard let section =  Section(rawValue: indexPath.section) else {
                 fatalError("Unknown section kind")
             }
-            
+
             switch section {
                 
             case .waitingChats:

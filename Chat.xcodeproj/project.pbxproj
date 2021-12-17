@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D910D4CE276BE53900A3964F /* ValuePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910D4CD276BE53900A3964F /* ValuePlayer.swift */; };
-		D910D4D0276BE58400A3964F /* ValueRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910D4CF276BE58400A3964F /* ValueRecorder.swift */; };
 		D9311409276685E200D2B843 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9311408276685E200D2B843 /* MainTabBarController.swift */; };
 		D931140B2766867600D2B843 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931140A2766867600D2B843 /* PeopleViewController.swift */; };
 		D931140E2766BD8200D2B843 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = D931140D2766BD8200D2B843 /* activeChats.json */; };
@@ -44,11 +43,12 @@
 		D98239FD2766764400DDCF68 /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98239FC2766764400DDCF68 /* SegmentedControl + Extension.swift */; };
 		D98239FF27667F5500DDCF68 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98239FE27667F5500DDCF68 /* ListViewController.swift */; };
 		D9830F2B276BAAB900CEA7F4 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9830F2A276BAAB900CEA7F4 /* MainService.swift */; };
+		E194A3099194C4CC2F0943D2 /* ValueRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194AECE3C735C533062AFA3 /* ValueRecorder.swift */; };
+		E194AD119FB2B3883CA38792 /* JSONCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194A1933B1FB6D60B602FCE /* JSONCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D910D4CD276BE53900A3964F /* ValuePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePlayer.swift; sourceTree = "<group>"; };
-		D910D4CF276BE58400A3964F /* ValueRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRecorder.swift; sourceTree = "<group>"; };
 		D9311408276685E200D2B843 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D931140A2766867600D2B843 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		D931140D2766BD8200D2B843 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
@@ -86,6 +86,8 @@
 		D98239FC2766764400DDCF68 /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
 		D98239FE27667F5500DDCF68 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D9830F2A276BAAB900CEA7F4 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
+		E194A1933B1FB6D60B602FCE /* JSONCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCreator.swift; sourceTree = "<group>"; };
+		E194AECE3C735C533062AFA3 /* ValueRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +147,6 @@
 			children = (
 				D94DB56A276795B30045A086 /* MUser.swift */,
 				D94DB56C276795C60045A086 /* MChat.swift */,
-				D910D4CF276BE58400A3964F /* ValueRecorder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +157,7 @@
 				D94DB56E2767963C0045A086 /* Models */,
 				D9830F2A276BAAB900CEA7F4 /* MainService.swift */,
 				D910D4CD276BE53900A3964F /* ValuePlayer.swift */,
+				E194AECE3C735C533062AFA3 /* ValueRecorder.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -220,6 +222,7 @@
 				D94DB55F2766E41C0045A086 /* GradientView.swift */,
 				D94DB573276930230045A086 /* HSBColorPicker.swift */,
 				D97386DA276274DF007F1AD4 /* UIKit */,
+				E194A1933B1FB6D60B602FCE /* JSONCreator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,7 +301,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D94DB56D276795C60045A086 /* MChat.swift in Sources */,
-				D910D4D0276BE58400A3964F /* ValueRecorder.swift in Sources */,
 				D98239FF27667F5500DDCF68 /* ListViewController.swift in Sources */,
 				D97386E3276292A9007F1AD4 /* OneLineTextField.swift in Sources */,
 				D94DB5672766F0B50045A086 /* SectionHeader.swift in Sources */,
@@ -329,6 +331,8 @@
 				D973869F27624DAE007F1AD4 /* SceneDelegate.swift in Sources */,
 				D97386E52762A32B007F1AD4 /* LoginViewController.swift in Sources */,
 				D97386DF27628031007F1AD4 /* StackView + Extension.swift in Sources */,
+				E194AD119FB2B3883CA38792 /* JSONCreator.swift in Sources */,
+				E194A3099194C4CC2F0943D2 /* ValueRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,17 +1,13 @@
 //
-//  MainService.swift
-//  Chat
-//
-//  Created by Alexandr Yakovlev on 16.12.2021.
+// Created by Alexandr Yakovlev on 17.12.2021.
 //
 
 import UIKit
+import Foundation
 
-class MainService {
-    static let shared = MainService()
-
-    func saveToJSON() {
-        var jsonString = "{ value: 0.5, time: 20}"
+extension ValuePlayer {
+    func saveToJSON(values: String) {
+        let jsonString = values
 
         if let documentDirectory = FileManager.default.urls(for: .documentDirectory,
                 in: .userDomainMask).first {
@@ -25,4 +21,5 @@ class MainService {
             }
         }
     }
+
 }

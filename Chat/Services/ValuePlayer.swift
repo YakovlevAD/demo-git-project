@@ -45,9 +45,7 @@ class ValuePlayer<T> {
         }
         
         let interval = Date().timeIntervalSince(date)
-        
-        
-        
+
         var index = 0
         
         for i in 0..<values.count {
@@ -57,12 +55,10 @@ class ValuePlayer<T> {
         }
         
         let valuesToExecute = values.prefix(index).compactMap {
-            $0.0
+            $0.0 //TODO: - что обозначает знак $ и почему 0.0
         }
         
         values.removeFirst(index)
-        
-//        let queue = DispatchQueue.
         
         for value in valuesToExecute {
             DispatchQueue.main.async { [weak self] in

@@ -57,7 +57,7 @@ class StrubEditorViewController: UIViewController {
             guard let values = sliderRecorder?.stopRecording() else {
                 return
             }
-            
+            MainService.shared.saveToJSON()
             sliderPlayer = ValuePlayer(values: values) { [weak self] value in
                 UIScreen.main.brightness = CGFloat(value)
             }

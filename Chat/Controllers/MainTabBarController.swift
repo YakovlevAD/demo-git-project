@@ -38,9 +38,9 @@ class MainTabBarController: UITabBarController {
         
         viewControllers = [
         
-        generateNavigationController(rootViewController: strubEditorViewController, title: "Create", image: plusImage),
+        generateNavigationController(rootViewController: peopleViewController, title: "People", image: peopleImage),
         generateNavigationController(rootViewController: listViewController, title: "List", image: convImage),
-        generateNavigationController(rootViewController: peopleViewController, title: "People", image: peopleImage)
+        generateNavigationController(rootViewController: strubEditorViewController, title: "Create", image: plusImage)
         
         ]
     }

@@ -1,0 +1,32 @@
+[
+    {
+        "username": "Peter Brown",
+        "userImageString": "bg-5.jpeg",
+        "lastMessage": "Are you going to ridea bike today?",
+        "id": 13
+    },
+    {
+        "username": "Peter Brown",
+        "userImageString": "bg-1.jpg",
+        "lastMessage": "Are you going to ridea bike today?",
+        "id": 12
+    },
+    {
+        "username": "Peter Brown",
+        "userImageString": "bg-2.jpg",
+        "lastMessage": "Are you going to ridea bike today?",
+        "id": 11
+    },
+	{
+		"username": "Peter Brown",
+		"userImageString": "bg-3.jpg",
+		"lastMessage": "Are you going to ridea bike today?",
+		"id": 10
+	},
+	{
+		"username": "Peter Brown",
+		"userImageString": "bg-4.jpg",
+		"lastMessage": "Are you going to ridea bike today?",
+		"id": 9
+	}
+]

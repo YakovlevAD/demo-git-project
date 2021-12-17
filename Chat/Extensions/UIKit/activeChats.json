@@ -1,0 +1,26 @@
+[
+	{
+		"username": "Eminem",
+		"userImageString": "bg-2",
+		"lastMessage": "Rap god",
+		"id": 8
+	},
+	{
+		"username": "AC/DC",
+		"userImageString": "bg-3",
+		"lastMessage": "Thunderstuck",
+		"id": 7
+	},
+    {
+        "username": "RUN DNC",
+        "userImageString": "bg-4",
+        "lastMessage": "It's Like That",
+        "id": 6
+    },
+    {
+        "username": "Linkin Park",
+        "userImageString": "bg-5",
+        "lastMessage": "Faint",
+        "id": 5
+    }
+]
