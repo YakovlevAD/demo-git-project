@@ -17,7 +17,7 @@ class MainTabBarController: UITabBarController {
         if #available(iOS 13.0, *) {
             let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithDefaultBackground()
-            tabBarAppearance.backgroundColor = .mainWhite()
+            tabBarAppearance.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             UITabBar.appearance().standardAppearance = tabBarAppearance
 
             if #available(iOS 15.0, *) {
@@ -29,7 +29,7 @@ class MainTabBarController: UITabBarController {
         let listViewController = ListViewController()
         let peopleViewController = PeopleViewController()
         
-        tabBar.tintColor = #colorLiteral(red: 0.629904747, green: 0.4648939967, blue: 0.9760698676, alpha: 1)
+        tabBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         tabBar.shadowImage = UIImage()
         let boldConfig = UIImage.SymbolConfiguration(weight: .medium)
         let plusImage = UIImage(systemName: "plus", withConfiguration: boldConfig)!

@@ -18,15 +18,15 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .white
+        backgroundColor = #colorLiteral(red: 0.1787690818, green: 0.1787690818, blue: 0.1787690818, alpha: 1)
         setupConstraints()
         
         self.layer.cornerRadius = 10
         
-        self.layer.shadowColor = #colorLiteral(red: 0.787740171, green: 0.787740171, blue: 0.787740171, alpha: 1)
+        self.layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         self.layer.shadowRadius  = 3
-        self.layer.shadowOpacity = 0.9
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
     override func layoutSubviews() {
@@ -46,6 +46,7 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
         userName.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         userImageView.backgroundColor = .white
+        userName.textColor = .mainWhite()
         
         addSubview(containerView)
         containerView.addSubview(userImageView)

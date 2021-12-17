@@ -16,7 +16,7 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: #colorLiteral(red: 0.8309458494, green: 0.7057176232, blue: 0.9536159635, alpha: 1), endColor: #colorLiteral(red: 0.5460671782, green: 0.7545514107, blue: 0.9380497336, alpha: 1))
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = #colorLiteral(red: 0.1787690818, green: 0.1787690818, blue: 0.1787690818, alpha: 1)
         setupConstraints()
         
         self.layer.cornerRadius = 4
@@ -46,6 +46,8 @@ extension ActiveChatCell {
         friendImageView.backgroundColor = .black
         friendImageView.contentMode = .scaleToFill
         gradientView.backgroundColor = .black
+        friendName.textColor = .mainWhite()
+        lastMessage.textColor = #colorLiteral(red: 0.3029474616, green: 0.3290647268, blue: 0.364199847, alpha: 1)
         
         addSubview(friendImageView)
         addSubview(friendName)

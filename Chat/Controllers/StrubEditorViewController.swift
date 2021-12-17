@@ -22,7 +22,7 @@ class StrubEditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
         setupConstraints()
         
         sliderRecorder = ValueRecorder{ [weak self] in

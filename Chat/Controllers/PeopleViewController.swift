@@ -25,7 +25,7 @@ class PeopleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        //view.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
         setupSearchBar()
         setupCollectionView()
         createDataSource()
@@ -40,7 +40,7 @@ class PeopleViewController: UIViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .mainWhite()
+        collectionView.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
         view.addSubview(collectionView)
 
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
@@ -88,7 +88,7 @@ extension PeopleViewController {
             let items = self.dataSource.snapshot().itemIdentifiers(inSection: .users)
             sectionHeader.configure(text: section.description(usersCount: items.count),
                                     font: .systemFont(ofSize: 36, weight: .light),
-                                    textColor: .label)
+                                    textColor: .mainWhite())
             return sectionHeader
         }
     }

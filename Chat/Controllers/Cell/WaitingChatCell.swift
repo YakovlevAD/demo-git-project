@@ -30,6 +30,13 @@ class WaitingChatCell: UICollectionViewCell, SelfConfiguringCell {
         setupConstraints()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 4
+    }
+    
     private func setupConstraints() {
         friendImageView.translatesAutoresizingMaskIntoConstraints = false
         friendImageView.contentMode = .scaleAspectFill

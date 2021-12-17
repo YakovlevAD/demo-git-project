@@ -51,7 +51,7 @@ class ListViewController: UIViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .mainWhite()
+        collectionView.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
         view.addSubview(collectionView)
         
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
@@ -93,7 +93,7 @@ extension ListViewController {
                 fatalError("Unknown section kind") }
             sectionHeader.configure(text: section.description(),
                                     font: .laoSangamMN20(),
-                                    textColor: #colorLiteral(red: 0.6394036412, green: 0.6394036412, blue: 0.6394036412, alpha: 1))
+                                    textColor: .mainWhite())
             return sectionHeader
         }
     }
