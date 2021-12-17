@@ -43,6 +43,8 @@
 		D98239FD2766764400DDCF68 /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98239FC2766764400DDCF68 /* SegmentedControl + Extension.swift */; };
 		D98239FF27667F5500DDCF68 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98239FE27667F5500DDCF68 /* ListViewController.swift */; };
 		D9830F2B276BAAB900CEA7F4 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9830F2A276BAAB900CEA7F4 /* MainService.swift */; };
+		D9A8CB35276C1044004EA3E7 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8CB34276C1044004EA3E7 /* UserCell.swift */; };
+		D9A8CB37276C13D7004EA3E7 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8CB36276C13D7004EA3E7 /* UIViewController + Extension.swift */; };
 		E194A3099194C4CC2F0943D2 /* ValueRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194AECE3C735C533062AFA3 /* ValueRecorder.swift */; };
 		E194AD119FB2B3883CA38792 /* JSONCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194A1933B1FB6D60B602FCE /* JSONCreator.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,8 @@
 		D98239FC2766764400DDCF68 /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
 		D98239FE27667F5500DDCF68 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D9830F2A276BAAB900CEA7F4 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
+		D9A8CB34276C1044004EA3E7 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		D9A8CB36276C13D7004EA3E7 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		E194A1933B1FB6D60B602FCE /* JSONCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCreator.swift; sourceTree = "<group>"; };
 		E194AECE3C735C533062AFA3 /* ValueRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +134,7 @@
 			children = (
 				D94DB55D2766D41F0045A086 /* ActiveChatCell.swift */,
 				D94DB5612766EB850045A086 /* WaitingChatCell.swift */,
+				D9A8CB34276C1044004EA3E7 /* UserCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				D97386D827626BC7007F1AD4 /* UIImageView + Extension.swift */,
 				D97386DE27628031007F1AD4 /* StackView + Extension.swift */,
 				D98239FC2766764400DDCF68 /* SegmentedControl + Extension.swift */,
+				D9A8CB36276C13D7004EA3E7 /* UIViewController + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 				D98239FF27667F5500DDCF68 /* ListViewController.swift in Sources */,
 				D97386E3276292A9007F1AD4 /* OneLineTextField.swift in Sources */,
 				D94DB5672766F0B50045A086 /* SectionHeader.swift in Sources */,
+				D9A8CB35276C1044004EA3E7 /* UserCell.swift in Sources */,
 				D94DB5602766E41C0045A086 /* GradientView.swift in Sources */,
 				D9311409276685E200D2B843 /* MainTabBarController.swift in Sources */,
 				D97386E127628E07007F1AD4 /* SignUpViewController.swift in Sources */,
@@ -330,6 +337,7 @@
 				D97386D127626331007F1AD4 /* UIButton + Extension.swift in Sources */,
 				D973869F27624DAE007F1AD4 /* SceneDelegate.swift in Sources */,
 				D97386E52762A32B007F1AD4 /* LoginViewController.swift in Sources */,
+				D9A8CB37276C13D7004EA3E7 /* UIViewController + Extension.swift in Sources */,
 				D97386DF27628031007F1AD4 /* StackView + Extension.swift in Sources */,
 				E194AD119FB2B3883CA38792 /* JSONCreator.swift in Sources */,
 				E194A3099194C4CC2F0943D2 /* ValueRecorder.swift in Sources */,
