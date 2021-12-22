@@ -40,7 +40,15 @@ class SignUpViewController: UIViewController {
     
     @objc private func signUpButtonTapped() {
         print(#function)
-        //AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmTextField.text, completion: <#T##(Result<MUser, Error>) -> Void#>)
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmTextField.text) { (result) in
+            switch result {
+            case .success(let user):
+                self.showAlert(with: "Успешно!", and: "Вы зарегистрированны")
+                print(user.email)
+            case .failure(let error):
+                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+            }
+        }
     }
     
 }
@@ -120,5 +128,14 @@ struct SignUpVCProvider: PreviewProvider {
         func updateUIViewController(_ uiViewController: SignUpVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SignUpVCProvider.ContainerView>) {
             
         }
+    }
+}
+
+extension UIViewController {
+    func showAlert(with title: String, and message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
