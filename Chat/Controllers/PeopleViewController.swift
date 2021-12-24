@@ -102,7 +102,7 @@ extension PeopleViewController {
                 fatalError("Unknown section kind") }
             let items = self.dataSource.snapshot().itemIdentifiers(inSection: .users)
             sectionHeader.configure(text: section.description(usersCount: items.count),
-                                    font: .systemFont(ofSize: 36, weight: .light),
+                                    font: .systemFont(ofSize: 20, weight: .light),
                                     textColor: .mainWhite())
             return sectionHeader
         }

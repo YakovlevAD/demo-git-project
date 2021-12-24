@@ -31,7 +31,13 @@ class AuthViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         googleButton.customizedGoogleButton()
-        view.backgroundColor  = .white
+        view.backgroundColor  = .black
+        
+        googleLabel.textColor = .white
+        emailLabel.textColor = .white
+        alreadyOnboardLabel.textColor = .white
+        
+        
         setupConstraints()
         
         emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
@@ -61,21 +67,22 @@ extension AuthViewController {
         let emailView = ButtonFormView(label: emailLabel, button: emailButton)
         let loginView = ButtonFormView(label: alreadyOnboardLabel, button: loginButton)
         
-        let stackView = UIStackView(arrangedSubviews: [googleView, emailView, loginView], axis: .vertical, spacing: 40)
+        
+        let stackView = UIStackView(arrangedSubviews: [googleView, emailView, loginView], axis: .vertical, spacing: 20)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(logoImageView)
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 160),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 60),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }

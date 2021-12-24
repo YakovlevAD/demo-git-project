@@ -35,7 +35,10 @@ class SetupProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .black
+        fullNameLabel.textColor = .white
+        aboutMeLabel.textColor = .white
+        
         setupConstraints()
         goToChatsButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
     }

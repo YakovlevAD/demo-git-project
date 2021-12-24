@@ -9,7 +9,7 @@ import UIKit
 
 class StrubEditorViewController: UIViewController {
     
-    let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: #colorLiteral(red: 0.8309458494, green: 0.7057176232, blue: 0.9536159635, alpha: 1), endColor: #colorLiteral(red: 0.5460671782, green: 0.7545514107, blue: 0.9380497336, alpha: 1))
+    let trackView = UIView()
     let slider = UISlider()
     let recLabel = UILabel(text:"Rec")
     let recSegmentedControl = UISegmentedControl(first: "Stop", second: "Start")
@@ -24,6 +24,9 @@ class StrubEditorViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
         setupConstraints()
+        
+        recLabel.textColor = .white
+        trackView.applyGradients(cornerRadius: 20)
         
         sliderRecorder = ValueRecorder{ [weak self] in
             UIScreen.main.brightness = CGFloat(self?.slider.value ?? 0 )
@@ -71,38 +74,35 @@ class StrubEditorViewController: UIViewController {
 // MARK: - Setup constraints
 extension StrubEditorViewController {
     private func setupConstraints() {
-        gradientView.translatesAutoresizingMaskIntoConstraints = false
         slider.translatesAutoresizingMaskIntoConstraints = false
-        gradientView.layer.cornerRadius = gradientView.frame.width / 2
-        gradientView.backgroundColor = .white
+        trackView.translatesAutoresizingMaskIntoConstraints = false
         let recStackView = UIStackView(arrangedSubviews: [recLabel, recSegmentedControl], axis: .vertical, spacing: 12)
         recStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(gradientView)
+
         view.addSubview(slider)
         view.addSubview(recStackView)
+        view.addSubview(trackView)
         
         NSLayoutConstraint.activate([
-            gradientView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            gradientView.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: -150),
-            gradientView.heightAnchor.constraint(equalToConstant: 7),
-            gradientView.widthAnchor.constraint(equalToConstant: 300)
+            trackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            trackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            trackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            trackView.heightAnchor.constraint(equalToConstant: 150)
         ])
         
         NSLayoutConstraint.activate([
-            slider.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
+            recStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 480),
+            recStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            slider.topAnchor.constraint(equalTo: view.topAnchor, constant: 520),
+            slider.leadingAnchor.constraint(equalTo: recStackView.trailingAnchor, constant: 20),
             slider.widthAnchor.constraint(equalToConstant: 100),
-            slider.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            //slider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            //slider.heightAnchor.constraint(equalToConstant: 100),
-            //slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
+            slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
         
-        NSLayoutConstraint.activate([
-            recStackView.topAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: 20),
-            recStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            recStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
     }
 }
 // MARK: - SwiftUI

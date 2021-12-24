@@ -35,7 +35,14 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         googleButton.customizedGoogleButton()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
+        
+        loginWithLabel.textColor = .white
+        orLabel.textColor = .white
+        emailLabel.textColor = .white
+        passwordLabel.textColor = .white
+        needAnAccountLabel.textColor = .white
+        welcomeLabel.textColor = .white
         setupConstraints()
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
@@ -57,7 +64,9 @@ class LoginViewController: UIViewController {
                     FirestoreService.shared.getUserData(user: user, completion: {(result) in
                         switch result {
                         case .success(let muser):
-                            self.present(MainTabBarController(), animated: true, completion: nil)
+                            let  mainTabBar = MainTabBarController()
+                            mainTabBar.modalPresentationStyle = .fullScreen
+                            self.present(mainTabBar, animated: true, completion: nil)
                         case .failure(let error):
                             self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
                         }
@@ -81,7 +90,7 @@ extension LoginViewController {
         let passwordStackView = UIStackView(arrangedSubviews: [passwordLabel, passwordTextField],
                                             axis: .vertical,
                                             spacing: 0)
-        loginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         let stackView = UIStackView(arrangedSubviews: [
             loginWithView,
             orLabel,
@@ -90,7 +99,7 @@ extension LoginViewController {
             loginButton
         ],
                                     axis: .vertical,
-                                    spacing: 40)
+                                    spacing: 20)
         signUpButton.contentHorizontalAlignment = .leading
         let bottomStackView = UIStackView(arrangedSubviews: [
             needAnAccountLabel,
@@ -106,21 +115,21 @@ extension LoginViewController {
         view.addSubview(bottomStackView)
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 100),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 40),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
             
         ])
         
         NSLayoutConstraint.activate([
             bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
-            bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }

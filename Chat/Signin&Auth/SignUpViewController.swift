@@ -34,7 +34,13 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .black
+        welcomeLabel.textColor = .white
+        emailLabel.textColor = .white
+        passwordLabel.textColor = .white
+        confirmPasswordLabel.textColor = .white
+        alreadyOnBoardLabel.textColor = .white
+        
         setupConstraints()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
@@ -71,7 +77,7 @@ extension SignUpViewController {
         let confirmPasswordStackView  = UIStackView(arrangedSubviews: [confirmPasswordLabel, confirmTextField], axis: .vertical, spacing: 0)
         
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        signUpButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         let stackView = UIStackView(arrangedSubviews: [
         emailStackView,
@@ -98,21 +104,21 @@ extension SignUpViewController {
         view.addSubview(bottomStackView)
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 160),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 40),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
             
         ])
         
         NSLayoutConstraint.activate([
-            bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
-            bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
+            bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }
