@@ -41,6 +41,10 @@ class SignUpViewController: UIViewController {
         confirmPasswordLabel.textColor = .white
         alreadyOnBoardLabel.textColor = .white
         
+        emailTextField.textColor = .white
+        passwordTextField.textColor = .white
+        confirmTextField.textColor = .white
+        
         setupConstraints()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)

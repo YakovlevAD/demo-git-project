@@ -16,11 +16,11 @@ class AuthViewController: UIViewController {
     
     let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFit)
     
-    let googleLabel = UILabel(text: "Get started with")
+//    let googleLabel = UILabel(text: "Get started with")
     let emailLabel = UILabel(text: "Or sign up with")
     let alreadyOnboardLabel = UILabel(text: "Already onboard")
     
-    let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: .white, isShadow: true)
+//    let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: .white, isShadow: true)
     let emailButton = UIButton(title: "Email", titleColor: .white, backgroundColor: .buttonDark(), isShadow: false)
     let loginButton = UIButton(title: "Login", titleColor: .buttonRed(), backgroundColor: .white, isShadow: true)
     let signUpVC = SignUpViewController()
@@ -30,10 +30,10 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        googleButton.customizedGoogleButton()
+//        googleButton.customizedGoogleButton()
         view.backgroundColor  = .black
         
-        googleLabel.textColor = .white
+//        googleLabel.textColor = .white
         emailLabel.textColor = .white
         alreadyOnboardLabel.textColor = .white
         
@@ -63,12 +63,12 @@ extension AuthViewController {
     private func setupConstraints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logoImageView)
-        let googleView = ButtonFormView(label: googleLabel, button: googleButton)
+//        let googleView = ButtonFormView(label: googleLabel, button: googleButton)
         let emailView = ButtonFormView(label: emailLabel, button: emailButton)
         let loginView = ButtonFormView(label: alreadyOnboardLabel, button: loginButton)
         
         
-        let stackView = UIStackView(arrangedSubviews: [googleView, emailView, loginView], axis: .vertical, spacing: 20)
+        let stackView = UIStackView(arrangedSubviews: [emailView, loginView], axis: .vertical, spacing: 20)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(logoImageView)

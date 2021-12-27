@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    let  welcomeLabel = UILabel(text:"Welcome back!", font: .avenir26())
+    let  welcomeLabel = UILabel(text:"Login", font: .avenir26())
     
     let  loginWithLabel = UILabel(text:"Login with")
     let  orLabel = UILabel(text:"or")
@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     let  passwordLabel = UILabel(text:"Password")
     let  needAnAccountLabel = UILabel(text:"Need an account?")
     
-    let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: .white, isShadow: true)
+//    let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: .white, isShadow: true)
     let emailTextField = OneLineTextField(font: .avenir20())
     let passwordTextField = OneLineTextField(font: .avenir20())
     let loginButton = UIButton(title: "Login", titleColor: .white, backgroundColor: .buttonDark())
@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        googleButton.customizedGoogleButton()
+//        googleButton.customizedGoogleButton()
         view.backgroundColor = .black
         
         loginWithLabel.textColor = .white
@@ -43,6 +43,10 @@ class LoginViewController: UIViewController {
         passwordLabel.textColor = .white
         needAnAccountLabel.textColor = .white
         welcomeLabel.textColor = .white
+        
+        emailTextField.textColor = .white
+        passwordTextField.textColor = .white
+        
         setupConstraints()
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
@@ -83,7 +87,7 @@ class LoginViewController: UIViewController {
 // MARK: - SetupConstraints
 extension LoginViewController {
     private func setupConstraints() {
-        let loginWithView = ButtonFormView(label: loginWithLabel, button: googleButton)
+//        let loginWithView = ButtonFormView(label: loginWithLabel, button: googleButton)
         let emailStackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField],
                                          axis: .vertical,
                                          spacing: 0)
@@ -92,8 +96,8 @@ extension LoginViewController {
                                             spacing: 0)
         loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         let stackView = UIStackView(arrangedSubviews: [
-            loginWithView,
-            orLabel,
+//            loginWithView,
+//            orLabel,
             emailStackView,
             passwordStackView,
             loginButton

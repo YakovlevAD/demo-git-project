@@ -11,8 +11,8 @@ class StrubEditorViewController: UIViewController {
     
     let trackView = UIView()
     let slider = UISlider()
-    let recLabel = UILabel(text:"Rec")
-    let recSegmentedControl = UISegmentedControl(first: "Stop", second: "Start")
+//    let recLabel = UILabel(text:"Rec")
+    let recSegmentedControl = UISegmentedControl(first: "Stop Rec", second: "Start Rec")
     
     var sliderRecorder: ValueRecorder<Float>? = nil
     var colorRecorder: ValueRecorder<UIColor>? = nil
@@ -25,8 +25,9 @@ class StrubEditorViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
         setupConstraints()
         
-        recLabel.textColor = .white
+//        recLabel.textColor = .white
         trackView.applyGradients(cornerRadius: 20)
+        trackView.transform = CGAffineTransform(rotationAngle: 0.61)
         
         sliderRecorder = ValueRecorder{ [weak self] in
             UIScreen.main.brightness = CGFloat(self?.slider.value ?? 0 )
@@ -74,14 +75,12 @@ class StrubEditorViewController: UIViewController {
 // MARK: - Setup constraints
 extension StrubEditorViewController {
     private func setupConstraints() {
-        slider.translatesAutoresizingMaskIntoConstraints = false
         trackView.translatesAutoresizingMaskIntoConstraints = false
-        let recStackView = UIStackView(arrangedSubviews: [recLabel, recSegmentedControl], axis: .vertical, spacing: 12)
-        recStackView.translatesAutoresizingMaskIntoConstraints = false
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        recSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
-
         view.addSubview(slider)
-        view.addSubview(recStackView)
+        view.addSubview(recSegmentedControl)
         view.addSubview(trackView)
         
         NSLayoutConstraint.activate([
@@ -92,15 +91,15 @@ extension StrubEditorViewController {
         ])
         
         NSLayoutConstraint.activate([
-            recStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 480),
-            recStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30)
+            recSegmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 480),
+            recSegmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ])
         
         NSLayoutConstraint.activate([
-            slider.topAnchor.constraint(equalTo: view.topAnchor, constant: 520),
-            slider.leadingAnchor.constraint(equalTo: recStackView.trailingAnchor, constant: 20),
+            slider.topAnchor.constraint(equalTo: view.topAnchor, constant: 480),
+            slider.leadingAnchor.constraint(equalTo: recSegmentedControl.trailingAnchor, constant: 20),
             slider.widthAnchor.constraint(equalToConstant: 100),
-            slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
+            slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
         
     }
