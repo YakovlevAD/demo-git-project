@@ -15,7 +15,7 @@ class SwipeCardView : UIView {
     var imageView: UIImageView!
   
     var label = UILabel()
-    var moreButton = UIButton()
+    var moreButton = UIButton(type: .system)
     
     var delegate : SwipeCardsDelegate?
 
@@ -27,7 +27,6 @@ class SwipeCardView : UIView {
     var dataSource : CardsDataModel? {
         didSet {
             swipeView.backgroundColor = dataSource?.bgColor
-            //swipeView.applyGradients(cornerRadius: <#T##CGFloat#>)
             label.text = dataSource?.text
             guard let image = dataSource?.image else { return }
             imageView.image = UIImage(named: image)
@@ -74,7 +73,6 @@ class SwipeCardView : UIView {
         swipeView = UIView()
         swipeView.layer.cornerRadius = 20
         swipeView.clipsToBounds = true
-        swipeView.applyGradients(cornerRadius: 20)
         shadowView.addSubview(swipeView)
         
         swipeView.translatesAutoresizingMaskIntoConstraints = false
@@ -86,7 +84,7 @@ class SwipeCardView : UIView {
     
     func configureLabelView() {
         swipeView.addSubview(label)
-        label.backgroundColor = .white
+        label.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4893581567)
         label.textColor = .black
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18)
@@ -148,21 +146,19 @@ class SwipeCardView : UIView {
        
         switch sender.state {
         case .ended:
-            if (point.x) > 40 {
+            if (point.x) > 60 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x + 200, y: centerOfParentContainer.y + point.y + 75)
                     card.alpha = 0
-                    print("reight \(card.center.x) \(card.center.y)")
                     self.layoutIfNeeded()
                 }
                 return
-            } else if point.x < -30 {
+            } else if point.x < -60 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x - 200, y: centerOfParentContainer.y + point.y + 75)
                     card.alpha = 0
-                    print("left \(card.center.x) \(card.center.y)")
                     self.layoutIfNeeded()
                 }
                 return
@@ -173,7 +169,6 @@ class SwipeCardView : UIView {
                 self.layoutIfNeeded()
             }
         case .changed:
-            print("changed card.c.x \(card.center.x) c.y \(card.center.y) p.x \(point.x) p.y \(point.y)")
             let rotation = tan(point.x / (self.frame.width * 2.0))
             card.transform = CGAffineTransform(rotationAngle: rotation)
             

@@ -56,7 +56,17 @@ class LoginViewController: UIViewController {
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+        
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @objc private func signUpButtonTapped() {
         dismiss(animated: true) {
             self.delegate?.toSignUpVC()
@@ -138,7 +148,7 @@ extension LoginViewController {
         NSLayoutConstraint.activate([
             bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
             bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+            //bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }

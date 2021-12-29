@@ -11,7 +11,7 @@ class SignUpViewController: UIViewController {
     
     let  welcomeLabel = UILabel(text:"Registration", font: .avenir26())
     
-    let  emailLabel = UILabel(text:"Eamil")
+    let  emailLabel = UILabel(text:"Email")
     let  passwordLabel = UILabel(text:"Password")
     let  confirmPasswordLabel = UILabel(text:"Confirm password")
     let  alreadyOnBoardLabel = UILabel(text:"Already onBoard?")
@@ -55,7 +55,16 @@ class SignUpViewController: UIViewController {
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @objc private func loginButtonTapped() {
         self.dismiss(animated: true) {
             self.deligate?.toLoginVC()
@@ -128,7 +137,7 @@ extension SignUpViewController {
         NSLayoutConstraint.activate([
             bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
             bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+            //bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }

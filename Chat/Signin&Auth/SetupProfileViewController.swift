@@ -10,7 +10,7 @@ import FirebaseAuth
 
 class SetupProfileViewController: UIViewController {
     
-    let  welcomeLabel = UILabel(text:"Set up profile", font: .avenir26())
+    let  welcomeLabel = UILabel(text:"Setup profile", font: .avenir26())
     let  fullImageView = AddPhotoView()
     let  fullNameLabel = UILabel(text:"Full name")
     let  aboutMeLabel = UILabel(text:"About me")
@@ -36,8 +36,12 @@ class SetupProfileViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
+        welcomeLabel.textColor = .white
         fullNameLabel.textColor = .white
         aboutMeLabel.textColor = .white
+        fullNameTextField.textColor = .white
+        aboutMeTextField.textColor = .white
+        sexSegmentedControl.tintColor = .white
         
         setupConstraints()
         goToChatsButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
@@ -62,7 +66,9 @@ class SetupProfileViewController: UIViewController {
                 
             case .success(let muser):
                 self.showAlert(with: "Успешно!", and: "Приятного общения!") {
-                    self.present(MainTabBarController(), animated: true, completion: nil)
+                    let mainTabBarController = MainTabBarController()
+                    mainTabBarController.modalPresentationStyle = .fullScreen
+                    self.present(mainTabBarController, animated: true, completion: nil)
                 }
                 print(muser)
             case .failure(let error):
@@ -102,12 +108,12 @@ extension SetupProfileViewController {
         ])
         
         NSLayoutConstraint.activate([
-            fullImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 20),
+            fullImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 10),
             fullImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 100),
+            stackView.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])

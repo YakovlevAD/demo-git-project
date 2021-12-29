@@ -42,10 +42,11 @@ class SwipePeopleViewController: UIViewController {
  
     //MARK: - Configurations
     func configureStackContainer() {
-        stackContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         stackContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackContainer.widthAnchor.constraint(equalToConstant: 380).isActive = true
-        stackContainer.heightAnchor.constraint(equalToConstant: 650).isActive = true
+        //TODO: - непонятно почему не заводятся значения экрана
+        stackContainer.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        stackContainer.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
     
     func configureNavigationBarButtonItem() {
