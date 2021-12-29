@@ -28,6 +28,7 @@ class MainTabBarController: UITabBarController {
         let strubEditorViewController = StrubEditorViewController()
         let listViewController = ListViewController()
         let peopleViewController = PeopleViewController()
+        let swipePeopleViewController = SwipePeopleViewController()
         
         tabBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         tabBar.shadowImage = UIImage()
@@ -38,6 +39,7 @@ class MainTabBarController: UITabBarController {
         
         viewControllers = [
             
+        generateNavigationController(rootViewController: swipePeopleViewController, title: "People", image: peopleImage),
         generateNavigationController(rootViewController: strubEditorViewController, title: "Create", image: plusImage),
         generateNavigationController(rootViewController: peopleViewController, title: "People", image: peopleImage),
         generateNavigationController(rootViewController: listViewController, title: "List", image: convImage)

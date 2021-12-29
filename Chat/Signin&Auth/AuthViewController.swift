@@ -14,10 +14,10 @@ class AuthViewController: UIViewController {
         return button
     }()
     
-    let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFit)
+    let logoImageView = UIImageView(image: UIImage(named: "Oval"), contentMode: .scaleAspectFit)
     
 //    let googleLabel = UILabel(text: "Get started with")
-    let emailLabel = UILabel(text: "Or sign up with")
+    let emailLabel = UILabel(text: "Sign up with")
     let alreadyOnboardLabel = UILabel(text: "Already onboard")
     
 //    let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: .white, isShadow: true)

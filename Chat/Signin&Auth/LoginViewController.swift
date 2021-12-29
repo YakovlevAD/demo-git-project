@@ -46,6 +46,11 @@ class LoginViewController: UIViewController {
         
         emailTextField.textColor = .white
         passwordTextField.textColor = .white
+        emailTextField.autocapitalizationType = .none
+        passwordTextField.autocapitalizationType = .none
+        emailTextField.autocorrectionType = UITextAutocorrectionType.no
+        passwordTextField.autocorrectionType = UITextAutocorrectionType.no
+        
         
         setupConstraints()
         

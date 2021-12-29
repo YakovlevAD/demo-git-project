@@ -41,6 +41,14 @@ class SetupProfileViewController: UIViewController {
         
         setupConstraints()
         goToChatsButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @objc private func goToChatsButtonTapped() {
@@ -56,7 +64,7 @@ class SetupProfileViewController: UIViewController {
                 self.showAlert(with: "Успешно!", and: "Приятного общения!") {
                     self.present(MainTabBarController(), animated: true, completion: nil)
                 }
-                 print(muser)
+                print(muser)
             case .failure(let error):
                 self.showAlert(with: "Ошибка!", and: error.localizedDescription)
             }
@@ -68,17 +76,17 @@ class SetupProfileViewController: UIViewController {
 extension SetupProfileViewController {
     private func setupConstraints() {
         let fullNameStackView = UIStackView(arrangedSubviews: [fullNameLabel,
-            fullNameTextField], axis: .vertical, spacing: 0)
+                                                               fullNameTextField], axis: .vertical, spacing: 0)
         let aboutMeStackView = UIStackView(arrangedSubviews: [aboutMeLabel, aboutMeTextField], axis: .vertical, spacing: 0)
         let sexStackView = UIStackView(arrangedSubviews: [sexLabel, sexSegmentedControl], axis: .vertical, spacing: 12)
         
-        goToChatsButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        goToChatsButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         let stackView = UIStackView(arrangedSubviews: [fullNameStackView,
-                                                      aboutMeStackView,
+                                                       aboutMeStackView,
                                                        sexStackView,
-                                                      goToChatsButton],
+                                                       goToChatsButton],
                                     axis: .vertical,
-                                    spacing: 40)
+                                    spacing: 20)
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         fullImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,19 +97,19 @@ extension SetupProfileViewController {
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            fullImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 40),
+            fullImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 20),
             fullImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 100),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
 }

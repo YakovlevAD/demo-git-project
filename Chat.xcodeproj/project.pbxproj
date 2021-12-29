@@ -56,6 +56,11 @@
 		D9C452EB2772C0EB00468B39 /* AuthNavigatingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C452EA2772C0EB00468B39 /* AuthNavigatingDelegate.swift */; };
 		D9C452ED2772C39C00468B39 /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C452EC2772C39C00468B39 /* FireStoreService.swift */; };
 		D9C452EF2772C79D00468B39 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C452EE2772C79D00468B39 /* UserError.swift */; };
+		D9E047342779CD8500EE9B8C /* SwipePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E047332779CD8500EE9B8C /* SwipePeopleViewController.swift */; };
+		D9E047362779CF2800EE9B8C /* CardsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E047352779CF2800EE9B8C /* CardsDataModel.swift */; };
+		D9E047382779CF4300EE9B8C /* SwipeCardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E047372779CF4300EE9B8C /* SwipeCardsDataSource.swift */; };
+		D9E0473A2779CF6A00EE9B8C /* StackContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E047392779CF6A00EE9B8C /* StackContainerView.swift */; };
+		D9E0473C2779CF8900EE9B8C /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E0473B2779CF8900EE9B8C /* SwipeCardView.swift */; };
 		E194A3099194C4CC2F0943D2 /* ValueRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194AECE3C735C533062AFA3 /* ValueRecorder.swift */; };
 		E194AD119FB2B3883CA38792 /* JSONCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194A1933B1FB6D60B602FCE /* JSONCreator.swift */; };
 		EBED15BECF38FBC58AD3F7C8 /* Pods_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1527498B6A700E3F98E950 /* Pods_Chat.framework */; };
@@ -116,6 +121,11 @@
 		D9C452EA2772C0EB00468B39 /* AuthNavigatingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigatingDelegate.swift; sourceTree = "<group>"; };
 		D9C452EC2772C39C00468B39 /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
 		D9C452EE2772C79D00468B39 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		D9E047332779CD8500EE9B8C /* SwipePeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipePeopleViewController.swift; sourceTree = "<group>"; };
+		D9E047352779CF2800EE9B8C /* CardsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDataModel.swift; sourceTree = "<group>"; };
+		D9E047372779CF4300EE9B8C /* SwipeCardsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardsDataSource.swift; sourceTree = "<group>"; };
+		D9E047392779CF6A00EE9B8C /* StackContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackContainerView.swift; sourceTree = "<group>"; };
+		D9E0473B2779CF8900EE9B8C /* SwipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
 		E194A1933B1FB6D60B602FCE /* JSONCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCreator.swift; sourceTree = "<group>"; };
 		E194AECE3C735C533062AFA3 /* ValueRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,8 +169,8 @@
 				D98239FE27667F5500DDCF68 /* ListViewController.swift */,
 				D94DB5662766F0B50045A086 /* SectionHeader.swift */,
 				D931140A2766867600D2B843 /* PeopleViewController.swift */,
-				D94DB5712769205B0045A086 /* StrubEditorViewController.swift */,
 				D9C452DF27727ABF00468B39 /* ChatRequsetViewController.swift */,
+				D9F2B5E2277C394C000BDC9B /* Strub */,
 				D94DB55C2766D4030045A086 /* Cell */,
 			);
 			path = Controllers;
@@ -190,6 +200,7 @@
 			children = (
 				D94DB56A276795B30045A086 /* MUser.swift */,
 				D94DB56C276795C60045A086 /* MChat.swift */,
+				D9E047352779CF2800EE9B8C /* CardsDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +243,7 @@
 				D973869E27624DAE007F1AD4 /* SceneDelegate.swift */,
 				D94DB5752769471E0045A086 /* Services */,
 				D93114072766855B00D2B843 /* Controllers */,
+				D9F2B5E1277C2AEE000BDC9B /* Swipe */,
 				D93114062766852B00D2B843 /* Signin&Auth */,
 				D97386A527624DB2007F1AD4 /* Assets.xcassets */,
 				D97386A727624DB2007F1AD4 /* LaunchScreen.storyboard */,
@@ -272,9 +284,9 @@
 				D93114112766BE1A00D2B843 /* Bundle-Decodable.swift */,
 				D94DB55F2766E41C0045A086 /* GradientView.swift */,
 				D94DB573276930230045A086 /* HSBColorPicker.swift */,
-				D97386DA276274DF007F1AD4 /* UIKit */,
 				E194A1933B1FB6D60B602FCE /* JSONCreator.swift */,
 				D9C452DB27726D9900468B39 /* InsertableTextField.swift */,
+				D97386DA276274DF007F1AD4 /* UIKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -287,6 +299,25 @@
 				D9C452EE2772C79D00468B39 /* UserError.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D9F2B5E1277C2AEE000BDC9B /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				D9E047332779CD8500EE9B8C /* SwipePeopleViewController.swift */,
+				D9E047392779CF6A00EE9B8C /* StackContainerView.swift */,
+				D9E0473B2779CF8900EE9B8C /* SwipeCardView.swift */,
+				D9E047372779CF4300EE9B8C /* SwipeCardsDataSource.swift */,
+			);
+			path = Swipe;
+			sourceTree = "<group>";
+		};
+		D9F2B5E2277C394C000BDC9B /* Strub */ = {
+			isa = PBXGroup;
+			children = (
+				D94DB5712769205B0045A086 /* StrubEditorViewController.swift */,
+			);
+			path = Strub;
 			sourceTree = "<group>";
 		};
 		EF4D3E54B49C64F4C57265FF /* Pods */ = {
@@ -421,14 +452,17 @@
 				D97386E3276292A9007F1AD4 /* OneLineTextField.swift in Sources */,
 				D94DB5672766F0B50045A086 /* SectionHeader.swift in Sources */,
 				D9A8CB35276C1044004EA3E7 /* UserCell.swift in Sources */,
+				D9E047382779CF4300EE9B8C /* SwipeCardsDataSource.swift in Sources */,
 				D94DB5602766E41C0045A086 /* GradientView.swift in Sources */,
 				D9C452E82772B08C00468B39 /* AuthError.swift in Sources */,
 				D91EAF8A276CE6BE00B2598E /* ProfileViewController.swift in Sources */,
 				D9311409276685E200D2B843 /* MainTabBarController.swift in Sources */,
 				D97386E127628E07007F1AD4 /* SignUpViewController.swift in Sources */,
 				D94DB56B276795B30045A086 /* MUser.swift in Sources */,
+				D9E0473A2779CF6A00EE9B8C /* StackContainerView.swift in Sources */,
 				D9830F2B276BAAB900CEA7F4 /* MainService.swift in Sources */,
 				D94DB55E2766D41F0045A086 /* ActiveChatCell.swift in Sources */,
+				D9E047362779CF2800EE9B8C /* CardsDataModel.swift in Sources */,
 				D97386D327626602007F1AD4 /* UIFont + Extension.swift in Sources */,
 				D931140B2766867600D2B843 /* PeopleViewController.swift in Sources */,
 				D97386A127624DAE007F1AD4 /* AuthViewController.swift in Sources */,
@@ -452,10 +486,12 @@
 				D910D4CE276BE53900A3964F /* ValuePlayer.swift in Sources */,
 				D94DB5622766EB850045A086 /* WaitingChatCell.swift in Sources */,
 				D97386D52762672F007F1AD4 /* UIColor + Extension.swift in Sources */,
+				D9E0473C2779CF8900EE9B8C /* SwipeCardView.swift in Sources */,
 				D97386D127626331007F1AD4 /* UIButton + Extension.swift in Sources */,
 				D973869F27624DAE007F1AD4 /* SceneDelegate.swift in Sources */,
 				D9C452E62772AD6900468B39 /* Validators.swift in Sources */,
 				D97386E52762A32B007F1AD4 /* LoginViewController.swift in Sources */,
+				D9E047342779CD8500EE9B8C /* SwipePeopleViewController.swift in Sources */,
 				D9A8CB37276C13D7004EA3E7 /* UIViewController + Extension.swift in Sources */,
 				D97386DF27628031007F1AD4 /* StackView + Extension.swift in Sources */,
 				D9C452ED2772C39C00468B39 /* FireStoreService.swift in Sources */,

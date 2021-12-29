@@ -9,7 +9,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    let  welcomeLabel = UILabel(text:"Good to see you!", font: .avenir26())
+    let  welcomeLabel = UILabel(text:"Registration", font: .avenir26())
     
     let  emailLabel = UILabel(text:"Eamil")
     let  passwordLabel = UILabel(text:"Password")
@@ -44,6 +44,12 @@ class SignUpViewController: UIViewController {
         emailTextField.textColor = .white
         passwordTextField.textColor = .white
         confirmTextField.textColor = .white
+        emailTextField.autocapitalizationType = .none
+        passwordTextField.autocapitalizationType = .none
+        confirmTextField.autocapitalizationType = .none
+        emailTextField.autocorrectionType = UITextAutocorrectionType.no
+        passwordTextField.autocorrectionType = UITextAutocorrectionType.no
+        confirmTextField.autocorrectionType = UITextAutocorrectionType.no
         
         setupConstraints()
         

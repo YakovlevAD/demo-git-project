@@ -32,6 +32,9 @@ class PeopleViewController: UIViewController {
         createDataSource()
         reloadData(with: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(signOut))
+        var nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.black
+        nav?.tintColor = .white
     }
     
     @objc private func signOut(){

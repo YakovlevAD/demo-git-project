@@ -27,7 +27,6 @@ class StrubEditorViewController: UIViewController {
         
 //        recLabel.textColor = .white
         trackView.applyGradients(cornerRadius: 20)
-        trackView.transform = CGAffineTransform(rotationAngle: 0.61)
         
         sliderRecorder = ValueRecorder{ [weak self] in
             UIScreen.main.brightness = CGFloat(self?.slider.value ?? 0 )
@@ -48,6 +47,9 @@ class StrubEditorViewController: UIViewController {
             self,
             action: #selector(onSlValueChanged),
             for: .valueChanged)
+        var nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.black
+        nav?.tintColor = .white
     }
     
     @objc
@@ -72,6 +74,7 @@ class StrubEditorViewController: UIViewController {
         }
     }
 }
+
 // MARK: - Setup constraints
 extension StrubEditorViewController {
     private func setupConstraints() {

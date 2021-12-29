@@ -27,7 +27,7 @@ class ButtonFormView: UIView {
             button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            button.heightAnchor.constraint(equalToConstant: 60)
+            button.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         bottomAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
