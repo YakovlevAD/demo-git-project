@@ -7,21 +7,27 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class PeopleViewController: UIViewController {
     
-    let users = Bundle.main.decode([MUser].self, from:"users.json")
+    var users = [MUser]()
+    private var usersListener: ListenerRegistration?
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, MUser>!
-
+    
     enum Section: Int, CaseIterable {
-    case users
+        case users
         func description(usersCount: Int) -> String {
             switch self {
             case .users:
                 return "\(usersCount) people nearby"
             }
         }
+    }
+    
+    deinit {
+        usersListener?.remove()
     }
     
     override func viewDidLoad() {
@@ -35,6 +41,16 @@ class PeopleViewController: UIViewController {
         var nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.black
         nav?.tintColor = .white
+        
+        usersListener = ListenerService.shared.userObserve(users: users, completion: { (result) in
+            switch result {
+            case .success(let users):
+                self.users = users
+                self.reloadData(with: nil)
+            case .failure(let error):
+                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+            }
+        })
     }
     
     @objc private func signOut(){
@@ -51,13 +67,13 @@ class PeopleViewController: UIViewController {
         }))
         present(ac, animated: true, completion: nil)
     }
-
+    
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
         view.addSubview(collectionView)
-
+        
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuseId)
     }
@@ -72,7 +88,7 @@ class PeopleViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
-
+    
     private func reloadData(with searchText: String?) {
         let filtred = users.filter { (user) -> Bool in
             user.contains(filter: searchText)
@@ -82,7 +98,7 @@ class PeopleViewController: UIViewController {
         snapshot.appendItems(filtred, toSection: .users)
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
-
+    
 }
 
 extension PeopleViewController {
@@ -91,7 +107,7 @@ extension PeopleViewController {
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError("Unknown section kind")
             }
-
+            
             switch section {
             case .users:
                 return self.configure(collectionView: collectionView, cellType: UserCell.self, with: user, for: indexPath)
@@ -115,13 +131,13 @@ extension PeopleViewController {
 extension PeopleViewController {
     private func createCompositionLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
-
+            
             guard let section =  Section(rawValue: sectionIndex) else {
                 fatalError("Unknown section kind")
             }
-
+            
             switch section {
-
+                
             case .users:
                 return self.createUsersSection()
             }
@@ -133,7 +149,7 @@ extension PeopleViewController {
     }
     
     private func createUsersSection() -> NSCollectionLayoutSection {
-
+        
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.6))
@@ -157,12 +173,12 @@ extension PeopleViewController {
 }
 // MARK: - UISearchBarDeligate
 extension PeopleViewController: UISearchBarDelegate {
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         reloadData(with: searchText)
         print(searchText)
     }
-
+    
 }
 
 extension ListViewController: UICollectionViewDelegateFlowLayout {
@@ -177,18 +193,18 @@ struct PeopleVCProvider: PreviewProvider {
     static var previews: some View {
         ContainerView().edgesIgnoringSafeArea(.all)
     }
-
+    
     struct ContainerView: UIViewControllerRepresentable {
-
-
+        
+        
         let tabBarVC = MainTabBarController()
-
+        
         func makeUIViewController(context: UIViewControllerRepresentableContext<PeopleVCProvider.ContainerView>) ->  MainTabBarController {
             return tabBarVC
         }
-
+        
         func updateUIViewController(_ uiViewController: PeopleVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<PeopleVCProvider.ContainerView>) {
-
+            
         }
     }
 }
