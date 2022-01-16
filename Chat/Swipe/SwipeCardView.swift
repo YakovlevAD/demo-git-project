@@ -29,7 +29,7 @@ class SwipeCardView : UIView {
             swipeView.backgroundColor = dataSource?.bgColor
             label.text = dataSource?.text
             guard let image = dataSource?.image else { return }
-            imageView.image = UIImage(named: image)
+            imageView.image = image.image
         }
     }
     
@@ -99,13 +99,13 @@ class SwipeCardView : UIView {
     func configureImageView() {
         imageView = UIImageView()
         swipeView.addSubview(imageView)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         imageView.centerXAnchor.constraint(equalTo: swipeView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: swipeView.centerYAnchor, constant: -30).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     func configureButton() {

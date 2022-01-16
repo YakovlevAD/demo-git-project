@@ -36,7 +36,7 @@ class PeopleViewController: UIViewController {
         setupSearchBar()
         setupCollectionView()
         createDataSource()
-        reloadData(with: nil)
+//        reloadData(with: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(signOut))
         var nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.black
@@ -47,6 +47,7 @@ class PeopleViewController: UIViewController {
             case .success(let users):
                 self.users = users
                 self.reloadData(with: nil)
+                print("count>>>\(users.count)")
             case .failure(let error):
                 self.showAlert(with: "Ошибка!", and: error.localizedDescription)
             }
@@ -76,6 +77,8 @@ class PeopleViewController: UIViewController {
         
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuseId)
+        
+        collectionView.delegate = self
     }
     
     private func setupSearchBar() {
@@ -186,6 +189,16 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
         return CGSize.init(width: view.frame.width, height: 64)
     }
 }
+
+// MARK: - UICollectionnViewDeligate
+extension PeopleViewController:UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let user = self.dataSource.itemIdentifier(for: indexPath) else { return }
+        let profileVC = ProfileViewController(user: user)
+        present(profileVC, animated: true, completion: nil)
+    }
+}
+
 // MARK: - SwiftUI
 import SwiftUI
 

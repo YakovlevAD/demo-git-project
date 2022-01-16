@@ -17,6 +17,8 @@ class FirestoreService {
         return db.collection("users")
     }
     
+    var currentUser: MUser!
+    
     func getUserData(user: User, completion: @escaping  (Result<MUser,Error>) -> Void) {
         let docRef  = usersRef.document(user.uid)
         docRef.getDocument {
@@ -26,6 +28,7 @@ class FirestoreService {
                     completion(.failure(UserError.cannotUnwrapToMUser))
                     return
                 }
+                self.currentUser = muser
                 completion(.success(muser))
             } else {
                 completion(.failure(UserError.cannotGetUserInfo))
@@ -68,4 +71,29 @@ class FirestoreService {
             }
         } //StorageService
     } //saveProfileWith
+    
+    func crateWaitingChat(message: String, reciver: MUser, completion: @escaping  (Result<Void,Error>) -> Void) {
+        let reference = db.collection(["users", reciver.id, "waitingChats"].joined(separator: "/"))
+        let messageRef = reference.document(self.currentUser.id).collection("messages")
+        
+        let message = MMessage(user: currentUser, content: message)
+        let chat = MChat(friendUsername: currentUser.username,
+                         friendAvatarStringURL: currentUser.avatarStringURL,
+                         lastMessageContent: message.content,
+                         friendId: currentUser.id)
+        
+        reference.document(currentUser.id).setData(chat.representation) { (error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            messageRef.addDocument(data: message.representation) { (error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(Void()))
+            }
+        }
+    }
 }

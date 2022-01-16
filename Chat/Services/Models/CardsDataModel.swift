@@ -12,9 +12,9 @@ struct CardsDataModel {
     
     var bgColor: UIColor
     var text : String
-    var image : String
+    var image : UIImageView
     
-    init(bgColor: UIColor, text: String, image: String) {
+    init(bgColor: UIColor, text: String, image: UIImageView) {
         self.bgColor = bgColor
         self.text = text
         self.image = image
