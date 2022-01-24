@@ -10,8 +10,8 @@ import SDWebImage
 
 class UserCell: UICollectionViewCell, SelfConfiguringCell {
     
-    let userImageView = UIImageView()
-    let userName = UILabel(text: "Alexei", font: .laoSangamMN20())
+    var userImageView = UIImageView()
+    var userName = UILabel()
     let containerView = UIView()
     
     static var reuseId: String = "UserCell"
@@ -41,10 +41,11 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
     }
     
     func configure<MChat>(with value: MChat) {
-        guard let user:MUser = value as? MUser else { return }
+        guard let user: MUser = value as? MUser else { return }
+        print("email>>\(user.email)")
+        userName.text = user.email
         guard let url = URL(string: user.avatarStringURL) else { return }
         userImageView.sd_setImage(with: url, completed: nil)
-        userName.text = user.username
     }
     
     private func setupConstraints() {

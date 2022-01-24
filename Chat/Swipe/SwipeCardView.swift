@@ -143,7 +143,7 @@ class SwipeCardView : UIView {
         
         let distanceFromCenter = ((UIScreen.main.bounds.width / 2) - card.center.x)
         divisor = ((UIScreen.main.bounds.width / 2) / 0.61)
-       
+        
         switch sender.state {
         case .ended:
             if (point.x) > 60 {

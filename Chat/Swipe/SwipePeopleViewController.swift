@@ -11,6 +11,7 @@ import FirebaseFirestore
 class SwipePeopleViewController: UIViewController {
     private var usersListener: ListenerRegistration?
     var users = [MUser]()
+//    let profileVC = ProfileViewController()
     
     //MARK: - Properties
     var viewModelData = [CardsDataModel]()
@@ -67,7 +68,7 @@ class SwipePeopleViewController: UIViewController {
             guard let url = URL(string: muser.avatarStringURL) else { return }
             let userImageView = UIImageView()
             userImageView.sd_setImage(with: url, completed: nil)
-            viewModelData.append(CardsDataModel(bgColor: UIColor(.black), text: muser.username, image: userImageView))
+            viewModelData.append(CardsDataModel(bgColor: UIColor(.black), text: muser.username, image: userImageView, user: muser))
         }
     }
     

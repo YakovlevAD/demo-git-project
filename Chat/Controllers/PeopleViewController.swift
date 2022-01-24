@@ -96,6 +96,9 @@ class PeopleViewController: UIViewController {
         let filtred = users.filter { (user) -> Bool in
             user.contains(filter: searchText)
         }
+        filtred.forEach { m in
+            print("user: \(m)")
+        }
         var snapshot  = NSDiffableDataSourceSnapshot<Section,MUser>()
         snapshot.appendSections([.users])
         snapshot.appendItems(filtred, toSection: .users)
@@ -113,6 +116,7 @@ extension PeopleViewController {
             
             switch section {
             case .users:
+                print("configure<><><><>")
                 return self.configure(collectionView: collectionView, cellType: UserCell.self, with: user, for: indexPath)
             }
         })
@@ -198,7 +202,6 @@ extension PeopleViewController:UICollectionViewDelegate {
         present(profileVC, animated: true, completion: nil)
     }
 }
-
 // MARK: - SwiftUI
 import SwiftUI
 

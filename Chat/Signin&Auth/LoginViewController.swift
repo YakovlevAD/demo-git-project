@@ -81,6 +81,7 @@ class LoginViewController: UIViewController {
             case .success(let user):
                 self.showAlert(with: "Успешно!", and: "Вы авторизованы") {
                     FirestoreService.shared.getUserData(user: user, completion: {(result) in
+                        print("login button tapped: \(result)")
                         switch result {
                         case .success(let muser):
                             let  mainTabBar = MainTabBarController()

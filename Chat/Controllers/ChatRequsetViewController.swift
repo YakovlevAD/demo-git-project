@@ -16,6 +16,20 @@ class ChatRequsetViewController: UIViewController {
     let acceptButton = UIButton(title: "ACCEPT", titleColor: .white, backgroundColor: .black, font: .laoSangamMN20(), isShadow: false, cornerRadius: 10)
     let denyButton = UIButton(title: "Deny", titleColor: .red, backgroundColor: .mainWhite(), font: .laoSangamMN20(), isShadow: false, cornerRadius: 10)
     
+    weak var delegate: WaitingChatsNAvigation?
+    
+    private var chat: MChat
+    
+    init(chat: MChat) {
+        self.chat = chat
+        nameLabel.text = chat.friendUsername
+        imageView.sd_setImage(with: URL(string: chat.friendAvatarStringURL), completed: nil)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +37,21 @@ class ChatRequsetViewController: UIViewController {
         view.backgroundColor = .mainWhite()
         customizeElements()
         setupConstraints()
+        
+        denyButton.addTarget(self, action: #selector(denyButtonTapped), for: .touchUpInside)
+        acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func denyButtonTapped() {
+        self.dismiss(animated: true) {
+            self.delegate?.remoweWaitingChat(chat: self.chat)
+        }
+    }
+    
+    @objc private func acceptButtonTapped() {
+        self.dismiss(animated: true) {
+            self.delegate?.chatToActive(chat: self.chat)
+        }
     }
     
     private func customizeElements() {
@@ -89,25 +118,25 @@ extension ChatRequsetViewController {
     }
 }
 
-// MARK: - SwiftUI
-import SwiftUI
-
-struct ChatRequsetVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-
-    struct ContainerView: UIViewControllerRepresentable {
-
-
-        let chatRequsetVC = ChatRequsetViewController()
-
-        func makeUIViewController(context: UIViewControllerRepresentableContext<ChatRequsetVCProvider.ContainerView>) ->  ChatRequsetViewController {
-            return chatRequsetVC
-        }
-
-        func updateUIViewController(_ uiViewController: ChatRequsetVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ChatRequsetVCProvider.ContainerView>) {
-
-        }
-    }
-}
+//// MARK: - SwiftUI
+//import SwiftUI
+//
+//struct ChatRequsetVCProvider: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct ContainerView: UIViewControllerRepresentable {
+//
+//
+//        let chatRequsetVC = ChatRequsetViewController()
+//
+//        func makeUIViewController(context: UIViewControllerRepresentableContext<ChatRequsetVCProvider.ContainerView>) ->  ChatRequsetViewController {
+//            return chatRequsetVC
+//        }
+//
+//        func updateUIViewController(_ uiViewController: ChatRequsetVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ChatRequsetVCProvider.ContainerView>) {
+//
+//        }
+//    }
+//}

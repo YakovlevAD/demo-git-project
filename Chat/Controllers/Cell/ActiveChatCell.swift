@@ -10,9 +10,9 @@ import UIKit
 class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     static var reuseId: String = "ActiveChatCell"
     
-    let friendImageView = UIImageView()
-    let friendName = UILabel(text: "User Name", font: .laoSangamMN20())
-    let lastMessage = UILabel(text: "How are you?", font: .laoSangamMN18())
+    var friendImageView = UIImageView()
+    var friendName = UILabel(text: "User Name", font: .laoSangamMN20())
+    var lastMessage = UILabel(text: "How are you?", font: .laoSangamMN18())
     let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: #colorLiteral(red: 0.8309458494, green: 0.7057176232, blue: 0.9536159635, alpha: 1), endColor: #colorLiteral(red: 0.5460671782, green: 0.7545514107, blue: 0.9380497336, alpha: 1))
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,9 +25,9 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     
     func configure<U>(with value: U) where U : Hashable {
         guard let chat: MChat = value as? MChat else { return }
-//        friendImageView.image = UIImage(named: chat.userImageString)
-//        friendName.text = chat.username
-//        lastMessage.text = chat.lastMessage
+        friendName.text = chat.friendUsername
+        lastMessage.text = chat.lastMessageContent
+        friendImageView.sd_setImage(with: URL(string: chat.friendAvatarStringURL), completed: nil)
     }
     
     required init?(coder: NSCoder) {
