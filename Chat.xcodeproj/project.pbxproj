@@ -10,6 +10,7 @@
 		D910D4CE276BE53900A3964F /* ValuePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910D4CD276BE53900A3964F /* ValuePlayer.swift */; };
 		D91EAF8A276CE6BE00B2598E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91EAF89276CE6BE00B2598E /* ProfileViewController.swift */; };
 		D9245F41279C5C8400439644 /* WaitingChatsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9245F40279C5C8400439644 /* WaitingChatsNavigation.swift */; };
+		D9245F43279F71A100439644 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9245F42279F71A100439644 /* ChatsViewController.swift */; };
 		D9311409276685E200D2B843 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9311408276685E200D2B843 /* MainTabBarController.swift */; };
 		D931140B2766867600D2B843 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931140A2766867600D2B843 /* PeopleViewController.swift */; };
 		D931140E2766BD8200D2B843 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = D931140D2766BD8200D2B843 /* activeChats.json */; };
@@ -78,6 +79,7 @@
 		D910D4CD276BE53900A3964F /* ValuePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePlayer.swift; sourceTree = "<group>"; };
 		D91EAF89276CE6BE00B2598E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D9245F40279C5C8400439644 /* WaitingChatsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigation.swift; sourceTree = "<group>"; };
+		D9245F42279F71A100439644 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		D9311408276685E200D2B843 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D931140A2766867600D2B843 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		D931140D2766BD8200D2B843 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				D9C452DF27727ABF00468B39 /* ChatRequsetViewController.swift */,
 				D9F2B5E2277C394C000BDC9B /* Strub */,
 				D94DB55C2766D4030045A086 /* Cell */,
+				D9245F42279F71A100439644 /* ChatsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				D97386D127626331007F1AD4 /* UIButton + Extension.swift in Sources */,
 				D973869F27624DAE007F1AD4 /* SceneDelegate.swift in Sources */,
 				D9C452E62772AD6900468B39 /* Validators.swift in Sources */,
+				D9245F43279F71A100439644 /* ChatsViewController.swift in Sources */,
 				D97386E52762A32B007F1AD4 /* LoginViewController.swift in Sources */,
 				D9E047342779CD8500EE9B8C /* SwipePeopleViewController.swift in Sources */,
 				D9A8CB37276C13D7004EA3E7 /* UIViewController + Extension.swift in Sources */,

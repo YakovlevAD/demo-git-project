@@ -15,6 +15,17 @@ class PeopleViewController: UIViewController {
     private var usersListener: ListenerRegistration?
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, MUser>!
+    private let currentUser: MUser
+    
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     enum Section: Int, CaseIterable {
         case users
@@ -32,7 +43,7 @@ class PeopleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.09766673297, green: 0.09766673297, blue: 0.09766673297, alpha: 1)
         setupSearchBar()
         setupCollectionView()
         createDataSource()
@@ -40,14 +51,13 @@ class PeopleViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(signOut))
         var nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.black
-        nav?.tintColor = .white
+        nav?.tintColor = .systemBlue
         
         usersListener = ListenerService.shared.userObserve(users: users, completion: { (result) in
             switch result {
             case .success(let users):
                 self.users = users
                 self.reloadData(with: nil)
-                print("count>>>\(users.count)")
             case .failure(let error):
                 self.showAlert(with: "Ошибка!", and: error.localizedDescription)
             }

@@ -8,8 +8,21 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
+    private let currentUser: MUser
+
+    init(currentUser: MUser = MUser(username: "userName",
+                                    email: "fr",
+                                    avatarStringURL: "fer",
+                                    description: "fre",
+                                    sex: "ewr",
+                                    id: "fregtr")) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +39,11 @@ class MainTabBarController: UITabBarController {
         }
 
         //let strubEditorViewController = StrubEditorViewController()
-        let listViewController = ListViewController()
-        let peopleViewController = PeopleViewController()
+        let listViewController = ListViewController(currentUser: currentUser)
+        let peopleViewController = PeopleViewController(currentUser: currentUser)
         let swipePeopleViewController = SwipePeopleViewController()
         
-        tabBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        tabBar.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         tabBar.shadowImage = UIImage()
         let boldConfig = UIImage.SymbolConfiguration(weight: .medium)
         //let plusImage = UIImage(systemName: "plus", withConfiguration: boldConfig)!

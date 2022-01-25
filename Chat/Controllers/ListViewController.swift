@@ -13,6 +13,18 @@ class ListViewController: UIViewController {
     var activeChats = [MChat]()
     var waitingChats = [MChat]()
     
+    private let currentUser: MUser
+    
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private var waitingChatsListener: ListenerRegistration?
     private var activeChatsListener: ListenerRegistration?
     
@@ -154,6 +166,8 @@ extension ListViewController: UICollectionViewDelegate {
             
         case .activeChats:
             print(indexPath)
+            let chatsVC = ChatsViewController(user: currentUser, chat: chat)
+            navigationController?.pushViewController(chatsVC, animated: true)
         }
     }
     
