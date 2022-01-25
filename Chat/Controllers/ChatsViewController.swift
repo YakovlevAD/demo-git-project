@@ -50,7 +50,6 @@ class ChatsViewController: MessagesViewController {
         messageListener = ListenerService.shared.messagesObserve(chat: chat, completion: { result in
             switch result {
             case .success(let message):
-                print("message sender>>>>\(message.sender)")
                 self.insertNewMessage(message: message)
             case .failure(let error):
                 self.showAlert(with: "Ошибка!", and: error.localizedDescription)
@@ -64,7 +63,16 @@ class ChatsViewController: MessagesViewController {
         messages.append(message)
         messages.sort()
         
+        let isLatestMessage = messages.firstIndex(of: message) == (messages.count - 1)
+        let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
+        
         messagesCollectionView.reloadData()
+        
+        if shouldScrollToBottom {
+            DispatchQueue.main.async {
+                self.messagesCollectionView.scrollToBottom(animated: true)
+            }
+        }
     }
 }
 
@@ -120,12 +128,31 @@ extension ChatsViewController: MessagesDataSource {
         return 1
     }
     
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        if indexPath.item % 4 == 0 {
+            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate),
+                                      attributes: [
+                                        NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
+                                        NSAttributedString.Key.foregroundColor: UIColor.darkGray
+                                      ])
+        } else {
+            return nil
+        }
+    }
     
 }
 
 extension ChatsViewController: MessagesLayoutDelegate {
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return CGSize(width: 0, height: 8)
+    }
+    
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        if  (indexPath.item) % 4 ==  0 {
+            return 30
+        } else {
+            return 0
+        }
     }
 }
 
@@ -164,5 +191,20 @@ extension ChatsViewController: InputBarAccessoryViewDelegate {
             }
         }
         inputBar.inputTextView.text = ""
+    }
+}
+
+extension UIScrollView {
+    
+    var isAtBottom: Bool {
+        return contentOffset.y >= verticalOffsetForBottom
+    }
+    
+    var verticalOffsetForBottom: CGFloat {
+      let scrollViewHeight = bounds.height
+      let scrollContentSizeHeight = contentSize.height
+      let bottomInset = contentInset.bottom
+      let scrollViewBottomOffset = scrollContentSizeHeight + bottomInset - scrollViewHeight
+      return scrollViewBottomOffset
     }
 }
