@@ -212,25 +212,25 @@ extension PeopleViewController:UICollectionViewDelegate {
         present(profileVC, animated: true, completion: nil)
     }
 }
-// MARK: - SwiftUI
-import SwiftUI
-
-struct PeopleVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        
-        let tabBarVC = MainTabBarController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<PeopleVCProvider.ContainerView>) ->  MainTabBarController {
-            return tabBarVC
-        }
-        
-        func updateUIViewController(_ uiViewController: PeopleVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<PeopleVCProvider.ContainerView>) {
-            
-        }
-    }
-}
+//// MARK: - SwiftUI
+//import SwiftUI
+//
+//struct PeopleVCProvider: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView().edgesIgnoringSafeArea(.all)
+//    }
+//    
+//    struct ContainerView: UIViewControllerRepresentable {
+//        
+//        
+//        let tabBarVC = MainTabBarController(user)
+//        
+//        func makeUIViewController(context: UIViewControllerRepresentableContext<PeopleVCProvider.ContainerView>) ->  MainTabBarController {
+//            return tabBarVC
+//        }
+//        
+//        func updateUIViewController(_ uiViewController: PeopleVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<PeopleVCProvider.ContainerView>) {
+//            
+//        }
+//    }
+//}

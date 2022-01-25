@@ -107,25 +107,25 @@ extension StrubEditorViewController {
         
     }
 }
-// MARK: - SwiftUI
-import SwiftUI
-
-struct StrubEditorVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-
-    struct ContainerView: UIViewControllerRepresentable {
-
-
-        let tabBarVC = MainTabBarController()
-
-        func makeUIViewController(context: UIViewControllerRepresentableContext<StrubEditorVCProvider.ContainerView>) ->  MainTabBarController {
-            return tabBarVC
-        }
-
-        func updateUIViewController(_ uiViewController: StrubEditorVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<StrubEditorVCProvider.ContainerView>) {
-
-        }
-    }
-}
+//// MARK: - SwiftUI
+//import SwiftUI
+//
+//struct StrubEditorVCProvider: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct ContainerView: UIViewControllerRepresentable {
+//
+//
+//        let tabBarVC = MainTabBarController()
+//
+//        func makeUIViewController(context: UIViewControllerRepresentableContext<StrubEditorVCProvider.ContainerView>) ->  MainTabBarController {
+//            return tabBarVC
+//        }
+//
+//        func updateUIViewController(_ uiViewController: StrubEditorVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<StrubEditorVCProvider.ContainerView>) {
+//
+//        }
+//    }
+//}

@@ -84,7 +84,7 @@ class LoginViewController: UIViewController {
                         print("login button tapped: \(result)")
                         switch result {
                         case .success(let muser):
-                            let  mainTabBar = MainTabBarController()
+                            let  mainTabBar = MainTabBarController(currentUser: muser)
                             mainTabBar.modalPresentationStyle = .fullScreen
                             self.present(mainTabBar, animated: true, completion: nil)
                         case .failure(let error):

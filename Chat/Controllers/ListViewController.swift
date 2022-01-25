@@ -275,25 +275,25 @@ extension ListViewController: UISearchBarDelegate {
     
 }
 
-// MARK: - SwiftUI
-import SwiftUI
-
-struct ListVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all).previewInterfaceOrientation(.portrait)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        
-        let tabBarVC = MainTabBarController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<ListVCProvider.ContainerView>) ->  MainTabBarController {
-            return tabBarVC
-        }
-        
-        func updateUIViewController(_ uiViewController: ListVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ListVCProvider.ContainerView>) {
-            
-        }
-    }
-}
+//// MARK: - SwiftUI
+//import SwiftUI
+//
+//struct ListVCProvider: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView().edgesIgnoringSafeArea(.all).previewInterfaceOrientation(.portrait)
+//    }
+//    
+//    struct ContainerView: UIViewControllerRepresentable {
+//        
+//        
+//        let tabBarVC = MainTabBarController()
+//        
+//        func makeUIViewController(context: UIViewControllerRepresentableContext<ListVCProvider.ContainerView>) ->  MainTabBarController {
+//            return tabBarVC
+//        }
+//        
+//        func updateUIViewController(_ uiViewController: ListVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ListVCProvider.ContainerView>) {
+//            
+//        }
+//    }
+//}

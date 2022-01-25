@@ -84,7 +84,7 @@ class SetupProfileViewController: UIViewController {
                 
             case .success(let muser):
                 self.showAlert(with: "Успешно!", and: "Приятного общения!") {
-                    let mainTabBarController = MainTabBarController()
+                    let mainTabBarController = MainTabBarController(currentUser: muser)
                     mainTabBarController.modalPresentationStyle = .fullScreen
                     self.present(mainTabBarController, animated: true, completion: nil)
                 }

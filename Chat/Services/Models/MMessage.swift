@@ -24,11 +24,11 @@ struct MMessage: Hashable, MessageType {
         return .text(content)
     }
     
-    init(user: MUser, content:String) {
+    init(user: MUser, content: String) {
         self.content = content
-        sender = Sender(senderId: user.id, displayName: user.username)
-        sentDate = Date()
-        id = nil
+        self.sender = Sender(senderId: user.id, displayName: user.username)
+        self.sentDate = Date()
+        self.id = nil
     }
     
     init?(document: QueryDocumentSnapshot) {
@@ -39,7 +39,7 @@ struct MMessage: Hashable, MessageType {
         guard let content = data["content"] as? String else { return nil }
         
         self.id = document.documentID
-        sender = Sender(senderId: senderId, displayName: senderName)
+        self.sender = Sender(senderId: senderId, displayName: senderName)
         self.sentDate = sentDate.dateValue()
         self.content = content
     }

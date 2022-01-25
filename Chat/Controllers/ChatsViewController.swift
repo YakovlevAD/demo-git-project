@@ -8,11 +8,12 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
+import FirebaseFirestore
 
 class ChatsViewController: MessagesViewController {
     
     private var messages: [MMessage] = []
-    
+    private var messageListener: ListenerRegistration?
     private let user:MUser
     private let chat:MChat
     
@@ -26,6 +27,10 @@ class ChatsViewController: MessagesViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        messageListener?.remove()
     }
     
     override func viewDidLoad() {
@@ -42,7 +47,15 @@ class ChatsViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        
+        messageListener = ListenerService.shared.messagesObserve(chat: chat, completion: { result in
+            switch result {
+            case .success(let message):
+                print("message sender>>>>\(message.sender)")
+                self.insertNewMessage(message: message)
+            case .failure(let error):
+                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+            }
+        })
         view.backgroundColor = .black
     }
     
@@ -141,7 +154,15 @@ extension ChatsViewController: MessagesDisplayDelegate {
 extension ChatsViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         let message = MMessage(user: user, content: text)
-        insertNewMessage(message: message)
+        print("send message from #\(user)# text #\(text)#")
+        FirestoreService.shared.sendMessage(chat: chat, message: message) { result in
+            switch result {
+            case .success():
+                self.messagesCollectionView.scrollToBottom()
+            case .failure(let error):
+                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+            }
+        }
         inputBar.inputTextView.text = ""
     }
 }

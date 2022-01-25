@@ -182,9 +182,9 @@
 				D94DB5662766F0B50045A086 /* SectionHeader.swift */,
 				D931140A2766867600D2B843 /* PeopleViewController.swift */,
 				D9C452DF27727ABF00468B39 /* ChatRequsetViewController.swift */,
+				D9245F42279F71A100439644 /* ChatsViewController.swift */,
 				D9F2B5E2277C394C000BDC9B /* Strub */,
 				D94DB55C2766D4030045A086 /* Cell */,
-				D9245F42279F71A100439644 /* ChatsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
