@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StackContainerView: UIView, SwipeCardsDelegate {
+class StackContainerView: UIView {
 
     //MARK: - Properties
     var numberOfCardsToShow: Int = 0
@@ -30,7 +30,6 @@ class StackContainerView: UIView, SwipeCardsDelegate {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         backgroundColor = .clear
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,7 +53,6 @@ class StackContainerView: UIView, SwipeCardsDelegate {
 
     //MARK: - Configurations
     private func addCardView(cardView: SwipeCardView, atIndex index: Int) {
-        cardView.delegate = self
         addCardFrame(index: index, cardView: cardView)
         cardViews.append(cardView)
         insertSubview(cardView, at: 0)

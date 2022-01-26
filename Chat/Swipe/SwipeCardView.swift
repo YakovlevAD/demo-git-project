@@ -17,6 +17,7 @@ class SwipeCardView : UIView {
     var label = UILabel()
     var moreButton = UIButton(type: .system)
     
+    weak var delegate2 : SwipeCardMyDelegate?
     var delegate : SwipeCardsDelegate?
 
     var divisor : CGFloat = 0
@@ -151,6 +152,8 @@ class SwipeCardView : UIView {
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x + 200, y: centerOfParentContainer.y + point.y + 75)
                     card.alpha = 0
+                    print("swipe to right")
+                    self.delegate2?.printed()
                     self.layoutIfNeeded()
                 }
                 return
@@ -159,6 +162,8 @@ class SwipeCardView : UIView {
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x - 200, y: centerOfParentContainer.y + point.y + 75)
                     card.alpha = 0
+                    print("swipe to left")
+                    self.delegate2?.printed()
                     self.layoutIfNeeded()
                 }
                 return
@@ -179,8 +184,6 @@ class SwipeCardView : UIView {
     
     @objc func handleTapGesture(sender: UITapGestureRecognizer){
     }
-    
-  
 }
 //// MARK: - SwiftUI
 //import SwiftUI

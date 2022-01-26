@@ -246,7 +246,6 @@ extension ChatsViewController: MessagesDisplayDelegate {
 extension ChatsViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         let message = MMessage(user: user, content: text)
-        print("send message from #\(user)# text #\(text)#")
         FirestoreService.shared.sendMessage(chat: chat, message: message) { result in
             switch result {
             case .success():

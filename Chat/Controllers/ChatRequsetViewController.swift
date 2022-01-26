@@ -16,7 +16,7 @@ class ChatRequsetViewController: UIViewController {
     let acceptButton = UIButton(title: "ACCEPT", titleColor: .white, backgroundColor: .black, font: .laoSangamMN20(), isShadow: false, cornerRadius: 10)
     let denyButton = UIButton(title: "Deny", titleColor: .red, backgroundColor: .mainWhite(), font: .laoSangamMN20(), isShadow: false, cornerRadius: 10)
     
-    weak var delegate: WaitingChatsNAvigation?
+    weak var delegate: WaitingChatsNavigation?
     
     private var chat: MChat
     

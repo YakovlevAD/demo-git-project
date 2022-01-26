@@ -54,7 +54,6 @@ class ProfileViewController:UIViewController {
     }
     
     @objc private func sendMessage() {
-        print(#function)
         guard let message = myTextField.text, message != "" else { return }
         
         self.dismiss(animated: true) {

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseFirestore
 
 class SwipePeopleViewController: UIViewController {
+    
     private var usersListener: ListenerRegistration?
     var users = [MUser]()
 //    let profileVC = ProfileViewController()
@@ -53,7 +54,6 @@ class SwipePeopleViewController: UIViewController {
             case .success(let users):
                 self.users = users
                 self.reloadData(with: nil)
-                print("count>>>\(users.count)")
             case .failure(let error):
                 self.showAlert(with: "Ошибка!", and: error.localizedDescription)
             }
@@ -71,8 +71,6 @@ class SwipePeopleViewController: UIViewController {
             viewModelData.append(CardsDataModel(bgColor: UIColor(.black), text: muser.username, image: userImageView, user: muser))
         }
     }
-    
-    
     //MARK: - Configurations
     func configureStackContainer() {
         stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -93,7 +91,13 @@ class SwipePeopleViewController: UIViewController {
     
 }
 
-extension SwipePeopleViewController : SwipeCardsDataSource {
+extension SwipePeopleViewController: SwipeCardMyDelegate {
+    func printed() {
+        print("from controller")
+    }
+}
+
+extension SwipePeopleViewController: SwipeCardsDataSource {
     
     func numberOfCardsToShow() -> Int {
         return viewModelData.count
@@ -102,6 +106,7 @@ extension SwipePeopleViewController : SwipeCardsDataSource {
     func card(at index: Int) -> SwipeCardView {
         let card = SwipeCardView()
         card.dataSource = viewModelData[index]
+        card.delegate2 = self
         return card
     }
     
@@ -109,25 +114,25 @@ extension SwipePeopleViewController : SwipeCardsDataSource {
         return nil
     }
 }
-// MARK: - SwiftUI
-import SwiftUI
-
-struct SwipePeopleVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        
-        let loginVC = SwipePeopleViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<SwipePeopleVCProvider.ContainerView>) ->  SwipePeopleViewController {
-            return loginVC
-        }
-        
-        func updateUIViewController(_ uiViewController: SwipePeopleVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SwipePeopleVCProvider.ContainerView>) {
-            
-        }
-    }
-}
+//// MARK: - SwiftUI
+//import SwiftUI
+//
+//struct SwipePeopleVCProvider: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct ContainerView: UIViewControllerRepresentable {
+//
+//
+//        let loginVC = SwipePeopleViewController()
+//
+//        func makeUIViewController(context: UIViewControllerRepresentableContext<SwipePeopleVCProvider.ContainerView>) ->  SwipePeopleViewController {
+//            return loginVC
+//        }
+//
+//        func updateUIViewController(_ uiViewController: SwipePeopleVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SwipePeopleVCProvider.ContainerView>) {
+//
+//        }
+//    }
+//}

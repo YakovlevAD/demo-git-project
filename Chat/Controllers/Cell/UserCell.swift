@@ -42,7 +42,6 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
     
     func configure<MChat>(with value: MChat) {
         guard let user: MUser = value as? MUser else { return }
-        print("email>>\(user.email)")
         userName.text = user.email
         guard let url = URL(string: user.avatarStringURL) else { return }
         userImageView.sd_setImage(with: url, completed: nil)

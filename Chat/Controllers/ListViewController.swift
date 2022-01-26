@@ -116,7 +116,6 @@ class ListViewController: UIViewController {
         snapshot.appendSections([.waitingChats, .activeChats])
         snapshot.appendItems(waitingChats, toSection: .waitingChats)
         snapshot.appendItems(activeChats, toSection: .activeChats)
-        print("reloadData>>>>>")
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
 }
@@ -165,7 +164,6 @@ extension ListViewController: UICollectionViewDelegate {
             self.present(chatRequestVC, animated: true, completion: nil)
             
         case .activeChats:
-            print(indexPath)
             let chatsVC = ChatsViewController(user: currentUser, chat: chat)
             navigationController?.pushViewController(chatsVC, animated: true)
         }
@@ -173,7 +171,7 @@ extension ListViewController: UICollectionViewDelegate {
     
 }
 
-extension ListViewController: WaitingChatsNAvigation {
+extension ListViewController: WaitingChatsNavigation {
     func remoweWaitingChat(chat: MChat) {
         FirestoreService.shared.deleteWaitingChat(chat: chat) { (result) in
             switch result {
@@ -186,7 +184,6 @@ extension ListViewController: WaitingChatsNAvigation {
     }
     
     func chatToActive(chat: MChat) {
-        print(#function)
         FirestoreService.shared.changeToActive(chat: chat) { result in
             switch result {
                 

@@ -46,6 +46,7 @@
 		D98239FD2766764400DDCF68 /* SegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98239FC2766764400DDCF68 /* SegmentedControl + Extension.swift */; };
 		D98239FF27667F5500DDCF68 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98239FE27667F5500DDCF68 /* ListViewController.swift */; };
 		D9830F2B276BAAB900CEA7F4 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9830F2A276BAAB900CEA7F4 /* MainService.swift */; };
+		D98DD52E27A182D700EB1294 /* SwipeCardMyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98DD52D27A182D700EB1294 /* SwipeCardMyDelegate.swift */; };
 		D9A18FF92794DC9300DF1D57 /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A18FF82794DC9300DF1D57 /* MMessage.swift */; };
 		D9A8CB35276C1044004EA3E7 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8CB34276C1044004EA3E7 /* UserCell.swift */; };
 		D9A8CB37276C13D7004EA3E7 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8CB36276C13D7004EA3E7 /* UIViewController + Extension.swift */; };
@@ -117,6 +118,7 @@
 		D98239FC2766764400DDCF68 /* SegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl + Extension.swift"; sourceTree = "<group>"; };
 		D98239FE27667F5500DDCF68 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D9830F2A276BAAB900CEA7F4 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
+		D98DD52D27A182D700EB1294 /* SwipeCardMyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardMyDelegate.swift; sourceTree = "<group>"; };
 		D9A18FF82794DC9300DF1D57 /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
 		D9A8CB34276C1044004EA3E7 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D9A8CB36276C13D7004EA3E7 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				D94DB5632766ED100045A086 /* SelfConfiguringCell.swift */,
 				D9C452EA2772C0EB00468B39 /* AuthNavigatingDelegate.swift */,
 				D9245F40279C5C8400439644 /* WaitingChatsNavigation.swift */,
+				D98DD52D27A182D700EB1294 /* SwipeCardMyDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				D97386E127628E07007F1AD4 /* SignUpViewController.swift in Sources */,
 				D94DB56B276795B30045A086 /* MUser.swift in Sources */,
 				D9E0473A2779CF6A00EE9B8C /* StackContainerView.swift in Sources */,
+				D98DD52E27A182D700EB1294 /* SwipeCardMyDelegate.swift in Sources */,
 				D9830F2B276BAAB900CEA7F4 /* MainService.swift in Sources */,
 				D94DB55E2766D41F0045A086 /* ActiveChatCell.swift in Sources */,
 				D9E047362779CF2800EE9B8C /* CardsDataModel.swift in Sources */,
