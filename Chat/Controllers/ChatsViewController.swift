@@ -53,11 +53,13 @@ class ChatsViewController: MessagesViewController {
             switch result {
             case .success(var message):
                 if let url = message.downloadURL {
+                    print("from chatsVC image url=\(url)")
                     StorageService.shared.downloadImage(url: url) { [weak self] result in
                         guard let self = self else { return }
                         switch result {
                         case .success(let image):
                             message.image = image
+                            print("image size \(message.image?.size)")
                             self.insertNewMessage(message: message)
                         case .failure(let error):
                             self.showAlert(with: "Ошибка!", and: error.localizedDescription)
@@ -109,6 +111,7 @@ class ChatsViewController: MessagesViewController {
             case .success(let url):
                 var message = MMessage(user: self.user, image: image)
                 message.downloadURL = url
+                print("ChatsVC upload photo url\(url)")
                 FirestoreService.shared.sendMessage(chat: self.chat, message: message) { result in
                     switch result {
                     case .success():

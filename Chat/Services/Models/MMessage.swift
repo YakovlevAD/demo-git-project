@@ -28,12 +28,11 @@ struct MMessage: Hashable, MessageType {
     }
     
     var kind: MessageKind {
-//        return .text(content)
         if let image = image  {
             let mediaItem = ImageItem(url: nil, image: nil, placeholderImage: image, size: image.size)
             return .photo(mediaItem)
         } else {
-            return  .text(content)
+            return .text(content)
         }
     }
     
@@ -60,12 +59,12 @@ struct MMessage: Hashable, MessageType {
         guard let senderId = data["senderID"] as? String else { return nil }
         guard let senderName = data["senderName"] as? String else { return nil }
         guard let sentDate = data["created"] as? Timestamp else { return nil }
-//        guard let content = data["content"] as? String else { return nil }
+        //        guard let content = data["content"] as? String else { return nil }
         
         self.id = document.documentID
         self.sender = Sender(senderId: senderId, displayName: senderName)
         self.sentDate = sentDate.dateValue()
-
+        
         if let content = data["content"] as? String {
             self.content = content
             downloadURL = nil

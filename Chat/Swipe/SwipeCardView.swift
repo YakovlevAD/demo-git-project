@@ -101,12 +101,13 @@ class SwipeCardView : UIView {
         imageView = UIImageView()
         swipeView.addSubview(imageView)
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         imageView.centerXAnchor.constraint(equalTo: swipeView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: swipeView.centerYAnchor, constant: -30).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+//        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     func configureButton() {

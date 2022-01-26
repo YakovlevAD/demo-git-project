@@ -14,10 +14,10 @@ class StorageService {
     static let shared = StorageService()
     
     let storageRef = Storage.storage().reference()
-    private var  avatarsRef: StorageReference {
+    private var avatarsRef: StorageReference {
         return storageRef.child("avatars")
     }
-    private var  chatsRef: StorageReference {
+    private var chatsRef: StorageReference {
         return storageRef.child("chats")
     }
     
@@ -75,7 +75,7 @@ class StorageService {
     
     func downloadImage(url: URL, completion: @escaping (Result<UIImage?, Error>) -> Void) {
         let ref = Storage.storage().reference(forURL: url.absoluteString)
-        let megaByte = Int64(1 * 1024 * 1024)
+        let megaByte = Int64(1 * 1024 * 1024 * 3)
         ref.getData(maxSize: megaByte) { (data, error) in
             guard let imageData = data else {
                 completion(.failure(error!))

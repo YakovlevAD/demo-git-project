@@ -44,7 +44,8 @@ extension ActiveChatCell {
         gradientView.translatesAutoresizingMaskIntoConstraints = false
         
         friendImageView.backgroundColor = .black
-        friendImageView.contentMode = .scaleToFill
+        friendImageView.contentMode = .scaleAspectFill
+        friendImageView.clipsToBounds = true
         gradientView.backgroundColor = .black
         friendName.textColor = .mainWhite()
         lastMessage.textColor = #colorLiteral(red: 0.3029474616, green: 0.3290647268, blue: 0.364199847, alpha: 1)
