@@ -59,7 +59,6 @@ class ProfileViewController:UIViewController {
         self.dismiss(animated: true) {
             FirestoreService.shared.crateWaitingChat(message: message, reciver: self.user) { (result) in
                 switch result {
-                    
                 case .success():
                     print("done ваше сообщение было отправлено \(self.user.username)")
                 case .failure(let error):
@@ -115,25 +114,25 @@ extension ProfileViewController {
         ])
     }
 }
-//// MARK: - SwiftUI
-//import SwiftUI
-//
-//struct ProfileVCProvider: PreviewProvider {
-//    static var previews: some View {
-//        ContainerView().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct ContainerView: UIViewControllerRepresentable {
-//
-//
-//        let profileVC = ProfileViewController()
-//
-//        func makeUIViewController(context: UIViewControllerRepresentableContext<ProfileVCProvider.ContainerView>) ->  ProfileViewController {
-//            return profileVC
-//        }
-//
-//        func updateUIViewController(_ uiViewController: ProfileVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ProfileVCProvider.ContainerView>) {
-//
-//        }
-//    }
-//}
+// MARK: - SwiftUI
+import SwiftUI
+
+struct ProfileVCProvider: PreviewProvider {
+    static var previews: some View {
+        ContainerView().edgesIgnoringSafeArea(.all)
+    }
+
+    struct ContainerView: UIViewControllerRepresentable {
+
+
+        let profileVC = ProfileViewController(user: MUser(username: "", email: "", avatarStringURL: "", description: "", sex: "", id: ""))
+
+        func makeUIViewController(context: UIViewControllerRepresentableContext<ProfileVCProvider.ContainerView>) ->  ProfileViewController {
+            return profileVC
+        }
+
+        func updateUIViewController(_ uiViewController: ProfileVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ProfileVCProvider.ContainerView>) {
+
+        }
+    }
+}

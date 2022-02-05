@@ -34,6 +34,7 @@ class MainTabBarController: UITabBarController {
         }
 
         //let strubEditorViewController = StrubEditorViewController()
+        let contactViewController = ContactViewController()
         let listViewController = ListViewController(currentUser: currentUser)
         let peopleViewController = PeopleViewController(currentUser: currentUser)
         let swipePeopleViewController = SwipePeopleViewController()
@@ -41,12 +42,14 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         tabBar.shadowImage = UIImage()
         let boldConfig = UIImage.SymbolConfiguration(weight: .medium)
+        let contactImage = UIImage(systemName: "plus", withConfiguration: boldConfig)!
         //let plusImage = UIImage(systemName: "plus", withConfiguration: boldConfig)!
         let convImage = UIImage(systemName: "list.bullet", withConfiguration: boldConfig)!
         let peopleImage = UIImage(systemName: "person.2", withConfiguration: boldConfig)!
         
         viewControllers = [
             
+        generateNavigationController(rootViewController: contactViewController, title: "Contacts", image: contactImage),
         generateNavigationController(rootViewController: peopleViewController, title: "People", image: peopleImage),
         generateNavigationController(rootViewController: swipePeopleViewController, title: "People", image: peopleImage),
         //generateNavigationController(rootViewController: strubEditorViewController, title: "Create", image: plusImage),

@@ -91,12 +91,6 @@ class SwipePeopleViewController: UIViewController {
     
 }
 
-extension SwipePeopleViewController: SwipeCardMyDelegate {
-    func printed() {
-        print("from controller")
-    }
-}
-
 extension SwipePeopleViewController: SwipeCardsDataSource {
     
     func numberOfCardsToShow() -> Int {
@@ -106,7 +100,6 @@ extension SwipePeopleViewController: SwipeCardsDataSource {
     func card(at index: Int) -> SwipeCardView {
         let card = SwipeCardView()
         card.dataSource = viewModelData[index]
-        card.delegate2 = self
         return card
     }
     

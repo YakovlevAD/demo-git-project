@@ -52,7 +52,7 @@ class PeopleViewController: UIViewController {
         var nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.black
         nav?.tintColor = .systemBlue
-        
+        // тут получаем данные из FireBase
         usersListener = ListenerService.shared.userObserve(users: users, completion: { (result) in
             switch result {
             case .success(let users):
@@ -102,19 +102,24 @@ class PeopleViewController: UIViewController {
         searchController.searchBar.delegate = self
     }
     
+    //  тут добавляем данные в массив
     private func reloadData(with searchText: String?) {
         let filtred = users.filter { (user) -> Bool in
             user.contains(filter: searchText)
         }
         var snapshot  = NSDiffableDataSourceSnapshot<Section,MUser>()
         snapshot.appendSections([.users])
+        //тут массив данных помечаем нужным типом ячеек
         snapshot.appendItems(filtred, toSection: .users)
+        //и полученный помечаный снапшот добавляем в датасоурс
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
     
 }
 
 extension PeopleViewController {
+    
+    //тут конфигурим секции по размерам и в item вставляем нужные ячейки которые пометили в снапшоте
     private func createDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, MUser>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, user) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else {
@@ -122,7 +127,7 @@ extension PeopleViewController {
             }
             
             switch section {
-            case .users:
+            case .users: //если секция юзерс то используем UserCell
                 return self.configure(collectionView: collectionView, cellType: UserCell.self, with: user, for: indexPath)
             }
         })

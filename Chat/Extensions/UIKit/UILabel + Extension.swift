@@ -1,5 +1,5 @@
 //
-//  Label + Extension.swift
+//  UILabel + Extension.swift
 //  Chat
 //
 //  Created by Alexandr Yakovlev on 09.12.2021.

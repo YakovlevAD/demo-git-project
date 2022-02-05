@@ -34,7 +34,7 @@
 		D97386D127626331007F1AD4 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97386D027626331007F1AD4 /* UIButton + Extension.swift */; };
 		D97386D327626602007F1AD4 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97386D227626602007F1AD4 /* UIFont + Extension.swift */; };
 		D97386D52762672F007F1AD4 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97386D42762672F007F1AD4 /* UIColor + Extension.swift */; };
-		D97386D727626A77007F1AD4 /* Label + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97386D627626A77007F1AD4 /* Label + Extension.swift */; };
+		D97386D727626A77007F1AD4 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97386D627626A77007F1AD4 /* UILabel + Extension.swift */; };
 		D97386D927626BC7007F1AD4 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97386D827626BC7007F1AD4 /* UIImageView + Extension.swift */; };
 		D97386DD27627739007F1AD4 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97386DC27627739007F1AD4 /* ButtonFormView.swift */; };
 		D97386DF27628031007F1AD4 /* StackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97386DE27628031007F1AD4 /* StackView + Extension.swift */; };
@@ -49,6 +49,8 @@
 		D98DD52E27A182D700EB1294 /* SwipeCardMyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98DD52D27A182D700EB1294 /* SwipeCardMyDelegate.swift */; };
 		D98DD53027A19FC900EB1294 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98DD52F27A19FC900EB1294 /* ContactViewController.swift */; };
 		D98DD53227A1A04200EB1294 /* MContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98DD53127A1A04200EB1294 /* MContact.swift */; };
+		D98E1F9327A5BAA2009FA95E /* SecondMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98E1F9227A5BAA1009FA95E /* SecondMainTabBarController.swift */; };
+		D98E1F9527A5F9CA009FA95E /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98E1F9427A5F9C9009FA95E /* ContactViewCell.swift */; };
 		D9A18FF92794DC9300DF1D57 /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A18FF82794DC9300DF1D57 /* MMessage.swift */; };
 		D9A8CB35276C1044004EA3E7 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8CB34276C1044004EA3E7 /* UserCell.swift */; };
 		D9A8CB37276C13D7004EA3E7 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8CB36276C13D7004EA3E7 /* UIViewController + Extension.swift */; };
@@ -108,7 +110,7 @@
 		D97386D027626331007F1AD4 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		D97386D227626602007F1AD4 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		D97386D42762672F007F1AD4 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
-		D97386D627626A77007F1AD4 /* Label + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label + Extension.swift"; sourceTree = "<group>"; };
+		D97386D627626A77007F1AD4 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		D97386D827626BC7007F1AD4 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		D97386DC27627739007F1AD4 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 		D97386DE27628031007F1AD4 /* StackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView + Extension.swift"; sourceTree = "<group>"; };
@@ -123,6 +125,8 @@
 		D98DD52D27A182D700EB1294 /* SwipeCardMyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardMyDelegate.swift; sourceTree = "<group>"; };
 		D98DD52F27A19FC900EB1294 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		D98DD53127A1A04200EB1294 /* MContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MContact.swift; sourceTree = "<group>"; };
+		D98E1F9227A5BAA1009FA95E /* SecondMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMainTabBarController.swift; sourceTree = "<group>"; };
+		D98E1F9427A5F9C9009FA95E /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
 		D9A18FF82794DC9300DF1D57 /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
 		D9A8CB34276C1044004EA3E7 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D9A8CB36276C13D7004EA3E7 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				D9245F42279F71A100439644 /* ChatsViewController.swift */,
 				D9F2B5E2277C394C000BDC9B /* Strub */,
 				D94DB55C2766D4030045A086 /* Cell */,
+				D98E1F9227A5BAA1009FA95E /* SecondMainTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 				D94DB55D2766D41F0045A086 /* ActiveChatCell.swift */,
 				D94DB5612766EB850045A086 /* WaitingChatCell.swift */,
 				D9A8CB34276C1044004EA3E7 /* UserCell.swift */,
+				D98E1F9427A5F9C9009FA95E /* ContactViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -291,7 +297,7 @@
 				D97386D027626331007F1AD4 /* UIButton + Extension.swift */,
 				D97386D227626602007F1AD4 /* UIFont + Extension.swift */,
 				D97386D42762672F007F1AD4 /* UIColor + Extension.swift */,
-				D97386D627626A77007F1AD4 /* Label + Extension.swift */,
+				D97386D627626A77007F1AD4 /* UILabel + Extension.swift */,
 				D97386D827626BC7007F1AD4 /* UIImageView + Extension.swift */,
 				D97386DE27628031007F1AD4 /* StackView + Extension.swift */,
 				D98239FC2766764400DDCF68 /* SegmentedControl + Extension.swift */,
@@ -500,7 +506,7 @@
 				D9BFE6102790C9EC001B9A2C /* UIImage + Extension.swift in Sources */,
 				D9A18FF92794DC9300DF1D57 /* MMessage.swift in Sources */,
 				D94DB574276930230045A086 /* HSBColorPicker.swift in Sources */,
-				D97386D727626A77007F1AD4 /* Label + Extension.swift in Sources */,
+				D97386D727626A77007F1AD4 /* UILabel + Extension.swift in Sources */,
 				D9C452DC27726D9900468B39 /* InsertableTextField.swift in Sources */,
 				D97386DD27627739007F1AD4 /* ButtonFormView.swift in Sources */,
 				D98239FB2766691D00DDCF68 /* AddPhotoView.swift in Sources */,
@@ -526,12 +532,14 @@
 				D97386E52762A32B007F1AD4 /* LoginViewController.swift in Sources */,
 				D9E047342779CD8500EE9B8C /* SwipePeopleViewController.swift in Sources */,
 				D9A8CB37276C13D7004EA3E7 /* UIViewController + Extension.swift in Sources */,
+				D98E1F9327A5BAA2009FA95E /* SecondMainTabBarController.swift in Sources */,
 				D9BFE60E27907E5D001B9A2C /* StorageService.swift in Sources */,
 				D97386DF27628031007F1AD4 /* StackView + Extension.swift in Sources */,
 				D9C452ED2772C39C00468B39 /* FireStoreService.swift in Sources */,
 				E194AD119FB2B3883CA38792 /* JSONCreator.swift in Sources */,
 				D9245F41279C5C8400439644 /* WaitingChatsNavigation.swift in Sources */,
 				D98DD53227A1A04200EB1294 /* MContact.swift in Sources */,
+				D98E1F9527A5F9CA009FA95E /* ContactViewCell.swift in Sources */,
 				E194A3099194C4CC2F0943D2 /* ValueRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -83,25 +83,25 @@ extension ActiveChatCell {
     }
 }
 
-//// MARK: - SwiftUI
-//import SwiftUI
-//
-//struct ActiveChatProvider: PreviewProvider {
-//    static var previews: some View {
-//        ContainerView().edgesIgnoringSafeArea(.all).previewInterfaceOrientation(.portrait)
-//    }
-//    
-//    struct ContainerView: UIViewControllerRepresentable {
-//        
-//        
-//        let tabBarVC = MainTabBarController()
-//        
-//        func makeUIViewController(context: UIViewControllerRepresentableContext<ActiveChatProvider.ContainerView>) ->  MainTabBarController {
-//            return tabBarVC
-//        }
-//        
-//        func updateUIViewController(_ uiViewController: ActiveChatProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ActiveChatProvider.ContainerView>) {
-//            
-//        }
-//    }
-//}
+// MARK: - SwiftUI
+import SwiftUI
+
+struct ActiveChatProvider: PreviewProvider {
+    static var previews: some View {
+        ContainerView().edgesIgnoringSafeArea(.all).previewInterfaceOrientation(.portrait)
+    }
+    
+    struct ContainerView: UIViewControllerRepresentable {
+        
+        
+        let tabBarVC = MainTabBarController(currentUser: MUser(username: "", email: "", avatarStringURL: "", description: "", sex: "", id: ""))
+        
+        func makeUIViewController(context: UIViewControllerRepresentableContext<ActiveChatProvider.ContainerView>) ->  MainTabBarController {
+            return tabBarVC
+        }
+        
+        func updateUIViewController(_ uiViewController: ActiveChatProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ActiveChatProvider.ContainerView>) {
+            
+        }
+    }
+}
